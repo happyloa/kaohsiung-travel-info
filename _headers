@@ -1,7 +1,0 @@
-/*
-  Cache-Control: public, max-age=0, s-maxage=86400
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
-  Referrer-Policy: no-referrer
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-

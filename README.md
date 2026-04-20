@@ -53,8 +53,8 @@ static/                      # 靜態資源
 
 ## 部署
 
-- 以 [Cloudflare Pages](https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-site/) 部署，`npm run build` 即可，由 `@sveltejs/adapter-auto` 自動切換為 Cloudflare 介面。
-- 靜態快取標頭放在專案根目錄的 `_headers`，部署時會隨產物一併上傳到 Cloudflare Pages。
+- 本專案使用 [SvelteKit](https://svelte.dev/) 的 `hooks.server.ts` 統一處理安全性標頭與快取設定，確保在所有部署環境（如 Cloudflare Pages）中都能正確執行。
+- 部署時只需執行 `npm run build`，由 `@sveltejs/adapter-auto` 自動處理環境適配。
 
 ## 參考
 
