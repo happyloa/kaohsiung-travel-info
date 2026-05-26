@@ -26,7 +26,6 @@
     "aos": "^2.3.4"
   },
   "overrides": {
-    "cookie": ">=0.7.0",
-    "typescript": "^6.0.3"
+    "cookie": ">=0.7.0"
   }
 }
