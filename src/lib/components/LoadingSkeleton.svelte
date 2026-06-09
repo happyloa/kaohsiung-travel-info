@@ -1,7 +1,9 @@
 <script lang="ts">
-  export let count = 12;
+  // 使用 Svelte 5 的 $props 接收 count 屬性
+  let { count = 12 }: { count?: number } = $props();
 
-  const placeholders = Array.from({ length: count });
+  // 將 placeholders 設為 $derived 以避免本地快照警告，確保響應式更新
+  let placeholders = $derived(Array.from({ length: count }));
 </script>
 
 <ul
