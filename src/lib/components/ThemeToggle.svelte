@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  // 目前主題狀態：'light' 或 'dark'
-  let theme: "light" | "dark" = "light";
+  // 目前主題狀態，使用 Svelte 5 的 $state 聲明響應式狀態
+  let theme: "light" | "dark" = $state("light");
 
   // 切換主題
   function toggleTheme() {
@@ -39,7 +39,7 @@
 <!-- 主題切換按鈕 - 固定在右下角 -->
 <button
   type="button"
-  on:click={toggleTheme}
+  onclick={toggleTheme}
   class="fixed bottom-5 right-5 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full
     bg-white/90 text-blue-600 shadow-lg backdrop-blur-sm transition-all duration-300
     hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400

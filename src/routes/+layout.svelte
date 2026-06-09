@@ -7,6 +7,9 @@
   import { onMount } from "svelte";
   import { initAOS } from "$lib/aos";
 
+  // Svelte 5 layout 接受 children prop
+  let { children } = $props();
+
   onMount(() => {
     initAOS();
   });
@@ -20,7 +23,7 @@
   />
 </svelte:head>
 
-<slot />
+{@render children()}
 
 <!-- 主題切換按鈕 -->
 <ThemeToggle />

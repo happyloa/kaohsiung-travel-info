@@ -1,6 +1,8 @@
 <script lang="ts">
-  // Svelte 生命週期
-  import { onMount } from "svelte";
+  // Svelte 生命週期與輔助函式
+  import { onMount, tick } from "svelte";
+  // AOS 動畫庫
+  import AOS from "aos";
   // 型別定義
   import type { SpotInfo } from "$lib/types";
   // 自訂元件
@@ -9,27 +11,25 @@
   import AreaCard from "$lib/components/AreaCard.svelte";
   import LoadingSkeleton from "$lib/components/LoadingSkeleton.svelte";
 
-  // 從 API 取得的全部資料
-  let data: SpotInfo[] = [];
-  // 載入狀態與錯誤訊息
-  let isLoading = true;
-  let errorMessage: string | null = null;
-  // 所有區域名稱
-  let areas: string[] = [];
-  // 目前選取的區域
-  let selected = "";
-  // 熱門區域列表，方便快速切換
+  // 使用 Svelte 5 的 $state 聲明響應式狀態
+  let data = $state<SpotInfo[]>([]);
+  let isLoading = $state(true);
+  let errorMessage = $state<string | null>(null);
+  let areas = $state<string[]>([]);
+  let selected = $state("");
+  let currentPage = $state(1);
+
+  // 熱門區域列表與分頁設定
   const hotAreas = ["苓雅區", "三民區", "新興區", "鼓山區"];
-  // 根據選擇篩出的資料
-  let filtered: SpotInfo[] = [];
-  // 分頁設定：一頁顯示 12 張卡片
   const pageSize = 12;
-  // 目前顯示的頁碼
-  let currentPage = 1;
-  // 目前頁面要顯示的卡片資料
-  let pageItems: SpotInfo[] = [];
-  // 全部頁數
-  let totalPages = 0;
+
+  // 使用 $derived 與 $derived.by 聲明衍生狀態，自動追蹤依賴並更新
+  let filtered = $derived(selected ? data.filter((d) => d.Zone === selected) : data);
+  let totalPages = $derived(Math.max(1, Math.ceil(filtered.length / pageSize)));
+  let pageItems = $derived.by(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filtered.slice(start, start + pageSize);
+  });
 
   // 初始化載入資料
   onMount(async () => {
@@ -43,7 +43,6 @@
       const json = await res.json();
       data = json.result.records;
       areas = Array.from(new Set(data.map((d: SpotInfo) => d.Zone)));
-      updateFiltered();
     } catch (error) {
       errorMessage =
         error instanceof Error ? error.message : "載入資料時發生未知錯誤。";
@@ -52,41 +51,31 @@
     }
   });
 
-  // 依選取區域更新篩選結果
-  function updateFiltered() {
-    filtered = selected ? data.filter((d) => d.Zone === selected) : data;
-    currentPage = 1;
-    updatePagination();
-  }
+  // 當篩選結果變動，totalPages 縮小時，確保 currentPage 不會溢出
+  $effect(() => {
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+  });
+
+  // 當分頁內容 (pageItems) 更新時，等待 DOM 渲染完成並重新整理 AOS 動畫偵測
+  $effect(() => {
+    pageItems; // 建立與 pageItems 的相依性
+    tick().then(() => {
+      AOS.refresh();
+    });
+  });
 
   // 處理區域選擇
   function handleSelect(area: string) {
     selected = area;
-    updateFiltered();
+    currentPage = 1;
   }
 
-  // 根據目前頁碼計算應顯示的資料與總頁數
-  function updatePagination() {
-    totalPages = Math.ceil(filtered.length / pageSize);
-    const safePage = Math.min(
-      Math.max(currentPage, 1),
-      Math.max(totalPages, 1),
-    );
-    if (currentPage !== safePage) {
-      currentPage = safePage;
-    }
-    const start = (safePage - 1) * pageSize;
-    pageItems = filtered.slice(start, start + pageSize);
-  }
-
-  // 切換頁碼時觸發，並重新整理列表
+  // 切換頁碼
   function goToPage(page: number) {
     currentPage = page;
-    updatePagination();
   }
-
-  // 當篩選結果改變時更新分頁內容
-  $: updatePagination();
 </script>
 
 <!-- 頁面頂部 -->
@@ -164,7 +153,7 @@
           <li>
             <button
               class="page-btn"
-              on:click={() => goToPage(currentPage - 1)}
+              onclick={() => goToPage(currentPage - 1)}
               disabled={currentPage === 1}
               type="button"
               aria-label="上一頁"
@@ -185,7 +174,7 @@
                   }`}
                 type="button"
                 aria-current={page === currentPage ? "page" : undefined}
-                on:click={() => goToPage(page)}
+                onclick={() => goToPage(page)}
               >
                 {page}
               </button>
@@ -194,7 +183,7 @@
           <li>
             <button
               class="page-btn"
-              on:click={() => goToPage(currentPage + 1)}
+              onclick={() => goToPage(currentPage + 1)}
               disabled={currentPage === totalPages}
               type="button"
               aria-label="下一頁"

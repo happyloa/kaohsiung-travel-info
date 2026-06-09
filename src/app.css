@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
 @import "tailwindcss";
+@import "aos/dist/aos.css";
 
 /* 啟用 Tailwind CSS 4 的 dark mode class selector */
 @custom-variant dark (&:where(.dark, .dark *));

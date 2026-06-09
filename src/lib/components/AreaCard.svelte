@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { SpotInfo } from "$lib/types";
 
-  export let info: SpotInfo;
+  // 使用 Svelte 5 的 $props 接收傳入的景點資料
+  let { info }: { info: SpotInfo } = $props();
 </script>
 
 <li data-aos="fade-up">
