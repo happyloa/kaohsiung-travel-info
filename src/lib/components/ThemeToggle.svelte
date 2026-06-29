@@ -20,19 +20,12 @@
     localStorage.setItem("theme", theme);
   }
 
-  // 初始化時讀取使用者偏好
+  // 主題已由 app.html 的 theme-init.js 於繪製前套用至 <html>，
+  // 此處僅讀回目前狀態讓按鈕圖示一致，避免重複判斷與二次閃爍。
   onMount(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (savedTheme) {
-      theme = savedTheme;
-    } else {
-      // 如果沒有儲存偏好，則使用系統偏好
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      theme = prefersDark ? "dark" : "light";
-    }
-    applyTheme();
+    theme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
   });
 </script>
 

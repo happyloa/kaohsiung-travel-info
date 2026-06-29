@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
 
+    <!-- 於繪製前套用主題，消除深色模式 FOUC（阻塞式、同源，符合 CSP） -->
+    <script src="%sveltekit.assets%/theme-init.js"></script>
+
     <!-- 預先連線至外部來源，縮短冷連線延遲 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
