@@ -60,6 +60,10 @@ src/
     ├── +page.ts            # 景點資料載入（串流式 SSR load function）
     └── +page.svelte        # 主頁面
 static/                     # 靜態資源
+├── bg.webp                 # 首屏背景圖
+├── favicon.webp            # 網站圖示
+├── github.webp             # GitHub 連結圖示
+├── thumb.webp              # 社群分享預覽圖 (og:image)
 ├── theme-init.js           # 繪製前套用主題，消除深色模式 FOUC
 ├── robots.txt              # 搜尋引擎索引規則
 └── sitemap.xml             # 網站地圖
