@@ -1,15 +1,19 @@
 <script lang="ts">
   // Svelte 生命週期與輔助函式
-  import { onMount, tick } from "svelte";
+  import { tick } from "svelte";
   // AOS 動畫庫
   import AOS from "aos";
   // 型別定義
   import type { SpotInfo } from "$lib/types";
+  import type { PageData } from "./$types";
   // 自訂元件
   import AreaSelect from "$lib/components/AreaSelect.svelte";
   import HotButtons from "$lib/components/HotButtons.svelte";
   import AreaCard from "$lib/components/AreaCard.svelte";
   import LoadingSkeleton from "$lib/components/LoadingSkeleton.svelte";
+
+  // 來自 +page.ts load 的串流資料（spots 為 Promise）
+  let { data: pageData }: { data: PageData } = $props();
 
   // 使用 Svelte 5 的 $state 聲明響應式狀態
   let data = $state<SpotInfo[]>([]);
@@ -31,24 +35,26 @@
     return filtered.slice(start, start + pageSize);
   });
 
-  // 初始化載入資料
-  onMount(async () => {
-    try {
-      const res = await fetch(
-        "https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json",
-      );
-      if (!res.ok) {
-        throw new Error("無法取得旅遊資訊，請稍後再試。");
-      }
-      const json = await res.json();
-      data = json.result.records;
-      areas = Array.from(new Set(data.map((d: SpotInfo) => d.Zone)));
-    } catch (error) {
-      errorMessage =
-        error instanceof Error ? error.message : "載入資料時發生未知錯誤。";
-    } finally {
-      isLoading = false;
-    }
+  // 消化來自 load 的串流 Promise，沿用原本的載入 / 錯誤 / 資料狀態與版面
+  $effect(() => {
+    let cancelled = false;
+    pageData.spots
+      .then((spots) => {
+        if (cancelled) return;
+        data = spots;
+        areas = Array.from(new Set(spots.map((d) => d.Zone)));
+      })
+      .catch((error) => {
+        if (cancelled) return;
+        errorMessage =
+          error instanceof Error ? error.message : "載入資料時發生未知錯誤。";
+      })
+      .finally(() => {
+        if (!cancelled) isLoading = false;
+      });
+    return () => {
+      cancelled = true;
+    };
   });
 
   // 當篩選結果變動，totalPages 縮小時，確保 currentPage 不會溢出
@@ -128,7 +134,10 @@
       <span class="sr-only">載入中</span>
     </section>
   {:else if errorMessage}
-    <p class="my-4 text-center text-xl font-semibold text-rose-500">
+    <p
+      class="my-4 text-center text-xl font-semibold text-rose-500"
+      role="alert"
+    >
       {errorMessage}
     </p>
   {:else if pageItems.length > 0}
