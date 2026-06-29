@@ -43,6 +43,60 @@ body {
   outline-color: #93c5fd;
 }
 
+/* 文字反白（選取）樣式 - 搭配品牌藍 */
+::selection {
+  background-color: #2563eb; /* blue-600 */
+  color: #ffffff;
+}
+
+.dark ::selection {
+  background-color: #60a5fa; /* blue-400 */
+  color: #0f172a; /* slate-900 */
+}
+
+/* 捲軸樣式 - WebKit (Chromium / Edge / Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #93c5fd; /* blue-300 */
+  border-radius: 9999px;
+  /* 透明邊框 + background-clip 製造內距，讓捲軸呈現纖細的膠囊感 */
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3b82f6; /* blue-500 */
+}
+
+html.dark::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #1e3a8a; /* blue-900 */
+}
+
+html.dark::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
+/* 捲軸樣式 - Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #93c5fd transparent; /* thumb / track */
+}
+
+html.dark {
+  scrollbar-color: #1e3a8a transparent;
+}
+
 /* 可重用的元件樣式 */
 @layer components {
   /* 卡片外層漸層邊框 */
