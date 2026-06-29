@@ -30,9 +30,9 @@
       <div
         class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3 text-white"
       >
-        <h3 class="text-lg font-semibold leading-tight text-shadow">
+        <h4 class="text-lg font-semibold leading-tight text-shadow">
           {info.Name}
-        </h3>
+        </h4>
         <span
           class="rounded-full bg-blue-600/95 px-3 py-1 text-xs font-semibold shadow-sm"
           >{info.Zone}</span
