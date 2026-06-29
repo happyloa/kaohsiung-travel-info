@@ -16,6 +16,12 @@
   --text-primary: #dbeafe;
 }
 
+/* 全域背景與文字色（原為 app.html 的 inline style，移至此處以相容 CSP） */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
 /* 客製化的工具類別，搭配 Tailwind 使用 */
 @layer utilities {
   .text-shadow {
