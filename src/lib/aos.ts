@@ -3,15 +3,16 @@
 import AOS from "aos";
 
 /**
- * 初始化 AOS 動畫
- * @param options - AOS 設定選項
+ * 初始化 AOS 動畫。
+ * 當使用者偏好「減少動態效果」(prefers-reduced-motion) 時自動停用動畫，改善無障礙體驗。
  */
-export function initAOS(options?: AOS.AosOptions) {
+export function initAOS() {
   AOS.init({
     duration: 600,
     easing: "ease-out-cubic",
     once: true,
     offset: 50,
-    ...options,
+    disable: () =>
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   });
 }

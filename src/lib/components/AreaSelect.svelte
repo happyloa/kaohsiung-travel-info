@@ -1,8 +1,9 @@
 <script lang="ts">
-  // 所有選單屬性，使用 Svelte 5 的 $props 接收，並將 selected 設為 $bindable
+  // 選單屬性，使用 Svelte 5 的 $props 接收。
+  // selected 為單向傳入、由父層透過 onChange 更新，故不需 $bindable。
   let {
     areas = [],
-    selected = $bindable(""),
+    selected = "",
     onChange
   }: {
     areas?: string[];
@@ -23,7 +24,7 @@
   id="area-select"
   class="w-full mt-4 mb-5 rounded-lg border border-blue-200 bg-white/80 p-2 text-slate-700 shadow-sm backdrop-blur-sm transition focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-slate-600 dark:bg-slate-800/80 dark:text-slate-200 dark:focus:border-blue-500 dark:focus:ring-blue-800"
   onchange={handleChange}
-  bind:value={selected}
+  value={selected}
 >
   <option disabled value=""> - 請選擇一個區域 - </option>
   {#each areas as area}

@@ -146,7 +146,7 @@
       data-aos="fade-up"
       data-aos-delay="150"
     >
-      {#each pageItems as item (item.Name)}
+      {#each pageItems as item (item._id)}
         <AreaCard info={item} />
       {/each}
     </ul>
