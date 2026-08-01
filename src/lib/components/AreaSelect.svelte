@@ -26,7 +26,7 @@
   onchange={handleChange}
   value={selected}
 >
-  <option disabled value=""> - 請選擇一個區域 - </option>
+  <option value="">全部景點</option>
   {#each areas as area}
     <option value={area}>{area}</option>
   {/each}
