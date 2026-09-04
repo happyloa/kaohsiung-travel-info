@@ -5,7 +5,7 @@
   import AOS from "aos";
   // 型別定義
   import type { SpotInfo } from "$lib/types";
-  import type { PageData } from "./$types";
+  import type { PageProps } from "./$types";
   // 自訂元件
   import AreaSelect from "$lib/components/AreaSelect.svelte";
   import HotButtons from "$lib/components/HotButtons.svelte";
@@ -13,7 +13,7 @@
   import LoadingSkeleton from "$lib/components/LoadingSkeleton.svelte";
 
   // 來自 +page.ts load 的串流資料（spots 為 Promise）
-  let { data: pageData }: { data: PageData } = $props();
+  let { data: pageData }: PageProps = $props();
 
   // 使用 Svelte 5 的 $state 聲明響應式狀態
   let data = $state<SpotInfo[]>([]);

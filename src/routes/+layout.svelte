@@ -6,9 +6,10 @@
   // AOS 動畫
   import { onMount } from "svelte";
   import { initAOS } from "$lib/aos";
+  import type { LayoutProps } from "./$types";
 
   // Svelte 5 layout 接受 children prop
-  let { children } = $props();
+  let { children }: LayoutProps = $props();
 
   // 網站基本資訊（供 SEO / 社群分享 / 結構化資料共用）
   const siteUrl = "https://kaohsiung-travel-info.worksbyaaron.com/";
