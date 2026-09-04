@@ -24,43 +24,40 @@
     return filtered.slice(start, start + pageSize);
   });
 
-  // 當篩選結果變動，totalPages 縮小時，確保 currentPage 不會溢出
+  // 篩選後頁數可能縮減，避免保留已不存在的頁碼。
   $effect(() => {
     if (currentPage > totalPages) {
       currentPage = totalPages;
     }
   });
 
-  // 當分頁內容 (pageItems) 更新時，等待 DOM 渲染完成並重新整理 AOS 動畫偵測
+  // DOM 更新後重新掃描目前頁面的 AOS 元素。
   $effect(() => {
-    pageItems; // 建立與 pageItems 的相依性
-    tick().then(() => {
+    void pageItems;
+    void tick().then(() => {
       AOS.refresh();
     });
   });
 
-  // 處理區域選擇
   function handleSelect(area: string) {
     selected = area;
     currentPage = 1;
   }
 
-  // 切換頁碼
   function goToPage(page: number) {
     currentPage = page;
   }
 </script>
 
-<!-- 頁面頂部 -->
 <header
-  class="relative overflow-hidden bg-[url('/bg.webp')] bg-cover bg-center p-8 sm:p-12 text-center text-white"
+  class="relative overflow-hidden bg-[url('/bg.webp')] bg-cover bg-center p-8 text-center text-white sm:p-12"
   data-aos="fade-down"
 >
   <div
     class="absolute inset-0 bg-gradient-to-b from-blue-950/85 via-sky-900/65 to-slate-900/75"
   ></div>
   <div class="relative mx-auto flex max-w-3xl flex-col items-center gap-3">
-    <h1 class="text-shadow text-3xl sm:text-4xl font-bold tracking-wide">
+    <h1 class="text-shadow text-3xl font-bold tracking-wide sm:text-4xl">
       高雄市旅遊資訊網
     </h1>
     <p class="text-shadow text-2xl font-medium text-blue-100">
@@ -69,10 +66,9 @@
     <AreaSelect {areas} {selected} onChange={handleSelect} />
   </div>
 </header>
-<!-- 主要內容 -->
 <main class="container mx-auto px-5 pb-12">
   <div
-    class="-mt-10 rounded-3xl border border-blue-200 bg-white/95 py-5 px-6 text-center shadow-xl backdrop-blur transition-colors dark:border-blue-900/70 dark:bg-slate-900/95"
+    class="-mt-10 rounded-3xl border border-blue-200 bg-white/95 px-6 py-5 text-center shadow-xl backdrop-blur transition-colors dark:border-blue-900/70 dark:bg-slate-900/95"
     data-aos="fade-up"
   >
     <h2
@@ -98,7 +94,7 @@
     </p>
   {:else if pageItems.length > 0}
     <ul
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+      class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
       data-aos="fade-up"
       data-aos-delay="150"
     >
@@ -167,7 +163,6 @@
   {/if}
 </main>
 
-<!-- 頁尾 -->
 <footer
   class="border-t border-blue-200 bg-gradient-to-b from-white to-blue-50/50 py-8 text-center transition-colors dark:border-blue-900/50 dark:from-slate-900 dark:to-blue-950/30"
   data-aos="fade-up"

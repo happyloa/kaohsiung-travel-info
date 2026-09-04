@@ -1,10 +1,7 @@
-// AOS (Animate On Scroll) 初始化模組
-// 只在客戶端載入，避免 SSR 問題
 import AOS from "aos";
 
 /**
- * 初始化 AOS 動畫。
- * 當使用者偏好「減少動態效果」(prefers-reduced-motion) 時自動停用動畫，改善無障礙體驗。
+ * 在元件掛載後初始化動畫；使用者偏好減少動態效果時完全停用。
  */
 export function initAOS() {
   AOS.init({

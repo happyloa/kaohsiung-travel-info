@@ -8,7 +8,7 @@
     ).matches;
     var dark = saved === "dark" || (!saved && prefersDark);
     document.documentElement.classList.toggle("dark", dark);
-  } catch (e) {
+  } catch {
     /* localStorage / matchMedia 不可用時靜默略過，維持預設淺色 */
   }
 })();

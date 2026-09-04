@@ -1,17 +1,12 @@
 <script lang="ts">
-  // 引入全域樣式，確保所有頁面共用 Tailwind 設定
   import "../app.css";
-  // 主題切換按鈕元件
   import ThemeToggle from "$lib/components/ThemeToggle.svelte";
-  // AOS 動畫
   import { onMount } from "svelte";
   import { initAOS } from "$lib/aos";
   import type { LayoutProps } from "./$types";
 
-  // Svelte 5 layout 接受 children prop
   let { children }: LayoutProps = $props();
 
-  // 網站基本資訊（供 SEO / 社群分享 / 結構化資料共用）
   const siteUrl = "https://kaohsiung-travel-info.worksbyaaron.com/";
   const siteName = "高雄市旅遊資訊網";
   const siteTitle = "高雄市旅遊資訊網 | Kaohsiung City Travel Info";
@@ -19,7 +14,7 @@
     "提供高雄市各區景點資訊、開放時間、地址、電話及票價查詢，並可依區域篩選和瀏覽熱門景點。";
   const siteImage = `${siteUrl}thumb.webp`;
 
-  // WebSite 結構化資料（JSON-LD），以靜態字串輸出，於伺服器端即可被爬蟲讀取
+  // 保持為可信任的靜態字串，避免 hydration markers 破壞 JSON-LD。
   const jsonLd = `<` + `script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -55,11 +50,9 @@
   <meta name="twitter:description" content={siteDescription} />
   <meta name="twitter:image" content={siteImage} />
 
-  <!-- 結構化資料 -->
   {@html jsonLd}
 </svelte:head>
 
 {@render children()}
 
-<!-- 主題切換按鈕 -->
 <ThemeToggle />

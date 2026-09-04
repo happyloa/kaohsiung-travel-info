@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     rolldownOptions: {
       checks: {
-        // SvelteKit's compile hook normally dominates this small app's build time.
+        // 小型專案中，SvelteKit 編譯 hook 的正常耗時容易觸發誤判提示。
         pluginTimings: false,
       },
     },

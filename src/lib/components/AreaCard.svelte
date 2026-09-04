@@ -2,7 +2,6 @@
   import type { SpotInfo } from "$lib/types";
   import Icon from "$lib/components/Icon.svelte";
 
-  // 使用 Svelte 5 的 $props 接收傳入的景點資料
   let { info }: { info: SpotInfo } = $props();
 </script>
 
@@ -10,7 +9,6 @@
   <article
     class="flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/90 bg-white shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl dark:border-blue-900/60 dark:bg-slate-900"
   >
-    <!-- 圖片區域 -->
     <div class="relative h-40">
       <img
         src={info.Picture1}
@@ -40,7 +38,6 @@
         >
       </div>
     </div>
-    <!-- 資訊區域 -->
     <div
       class="flex-1 space-y-2 p-4 text-sm text-blue-950 dark:text-blue-100"
     >
