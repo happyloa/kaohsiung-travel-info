@@ -32,8 +32,10 @@
 
 ## 開發環境
 
+需要 Node.js 22.12.0 以上版本；專案以 `.node-version` 固定部署與開發版本，並在 `package.json` 固定 npm 版本。
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
