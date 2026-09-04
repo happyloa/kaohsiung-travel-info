@@ -1,7 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
 
 const securityHeaders: Record<string, string> = {
-  'Cache-Control': 'public, max-age=0, s-maxage=86400',
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
   'Referrer-Policy': 'no-referrer',
