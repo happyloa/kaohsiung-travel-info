@@ -12,11 +12,8 @@ const config = {
     // https://svelte.dev/docs/kit/adapter-cloudflare
     adapter: adapter(),
 
-    // Content-Security-Policy：使用 nonce 模式，讓 SvelteKit 為它注入的所有
-    // script（含 SSR 串流期間後續送出的資料區塊）標上同一組 per-request nonce，
-    // 避免串流式 load 的後續 script 因雜湊未涵蓋而被擋下。各 directive 已涵蓋
-    // 目前所有資源來源（Google Fonts、Font Awesome CDN、第三方 https 圖片、
-    // GitHub 資料來源）；外部同源的 theme-init.js 由 'self' 允許。
+    // 使用 per-request nonce 保護 SvelteKit 產生的 inline scripts。
+    // directives 僅開放目前實際使用的同源資源、字型與第三方圖片。
     csp: {
       mode: "nonce",
       directives: {
@@ -35,7 +32,7 @@ const config = {
           "data:",
         ],
         "img-src": ["self", "https:", "data:"],
-        "connect-src": ["self", "https://raw.githubusercontent.com"],
+        "connect-src": ["self"],
         "frame-ancestors": ["none"],
         "base-uri": ["self"],
         "object-src": ["none"],

@@ -11,7 +11,7 @@
 - **區域篩選**：可依行政區篩選高雄各區景點。
 - **熱門景點快速按鈕**：快速查看苓雅、三民、新興、鼓山等熱門區域。
 - **分頁瀏覽**：景點以分頁方式呈現，每頁顯示 12 筆。
-- **串流式 SSR 載入**：資料於請求時在伺服器端抓取並串流至前端，載入期間顯示骨架動畫。
+- **伺服器端資料載入**：景點資料於伺服器端完成驗證，讓初始 HTML 直接包含主要內容。
 - **SEO 與社群分享**：內建 canonical、Open Graph、Twitter Card 與 WebSite JSON-LD。
 
 ## 使用技術
@@ -24,7 +24,7 @@
 
 ## 資料來源
 
-景點資料透過 SvelteKit load function（`src/routes/+page.ts`）於請求時抓取並以串流方式送至前端，載入期間顯示骨架動畫；來源為 HexSchool 提供的高雄旅遊資料：
+景點資料透過 SvelteKit server load function（`src/routes/+page.server.ts`）於請求時抓取、驗證並隨初始 HTML 傳回；來源為 HexSchool 提供的高雄旅遊資料：
 
 <https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json>
 
@@ -53,11 +53,10 @@ src/
 │       ├── AreaCard.svelte       # 景點卡片
 │       ├── AreaSelect.svelte     # 區域下拉選單
 │       ├── HotButtons.svelte     # 熱門區域按鈕
-│       ├── LoadingSkeleton.svelte # 載入骨架
 │       └── ThemeToggle.svelte    # 深淺色模式切換
 └── routes/
     ├── +layout.svelte      # 全域佈局（SEO / OG / JSON-LD meta）
-    ├── +page.ts            # 景點資料載入（串流式 SSR load function）
+    ├── +page.server.ts     # 景點資料載入與格式驗證
     └── +page.svelte        # 主頁面
 static/                     # 靜態資源
 ├── bg.webp                 # 首屏背景圖
