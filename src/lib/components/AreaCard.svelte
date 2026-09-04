@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { SpotInfo } from "$lib/types";
+  import Icon from "$lib/components/Icon.svelte";
 
   // 使用 Svelte 5 的 $props 接收傳入的景點資料
   let { info }: { info: SpotInfo } = $props();
@@ -24,7 +25,7 @@
         <span
           class="absolute left-3 top-3 rounded-full bg-emerald-500/90 px-3 py-1 text-xs font-medium text-white shadow"
         >
-          <i class="fas fa-tags" aria-hidden="true"></i> 免費
+          <Icon name="tag" class="h-3.5 w-3.5" /> 免費
         </span>
       {/if}
       <div
@@ -44,15 +45,15 @@
       class="flex-1 space-y-2 p-4 text-sm text-blue-950 dark:text-blue-100"
     >
       <p class="info-row">
-        <i class="fas fa-clock info-icon" aria-hidden="true"></i>
+        <Icon name="clock" class="info-icon h-4 w-4 shrink-0" />
         {info.Opentime || "未提供營業時間"}
       </p>
       <p class="info-row">
-        <i class="fas fa-map-marker-alt info-icon" aria-hidden="true"></i>
+        <Icon name="map-pin" class="info-icon h-4 w-4 shrink-0" />
         {info.Add || "未提供地址"}
       </p>
       <p class="info-row">
-        <i class="fas fa-phone-alt info-icon" aria-hidden="true"></i>
+        <Icon name="phone" class="info-icon h-4 w-4 shrink-0" />
         {info.Tel || "未提供電話"}
       </p>
     </div>

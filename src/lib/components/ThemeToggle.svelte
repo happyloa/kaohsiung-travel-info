@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import Icon from "$lib/components/Icon.svelte";
 
   // 目前主題狀態，使用 Svelte 5 的 $state 聲明響應式狀態
   let theme: "light" | "dark" = $state("light");
@@ -40,10 +41,8 @@
   aria-label={theme === "light" ? "切換至深色模式" : "切換至淺色模式"}
 >
   {#if theme === "light"}
-    <!-- 月亮圖示 - 點擊切換至深色 -->
-    <i class="fas fa-moon text-xl"></i>
+    <Icon name="moon" class="h-5 w-5" />
   {:else}
-    <!-- 太陽圖示 - 點擊切換至淺色 -->
-    <i class="fas fa-sun text-xl"></i>
+    <Icon name="sun" class="h-5 w-5" />
   {/if}
 </button>

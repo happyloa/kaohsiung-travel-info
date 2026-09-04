@@ -23,12 +23,10 @@ const config = {
           "self",
           "unsafe-inline",
           "https://fonts.googleapis.com",
-          "https://cdnjs.cloudflare.com",
         ],
         "font-src": [
           "self",
           "https://fonts.gstatic.com",
-          "https://cdnjs.cloudflare.com",
           "data:",
         ],
         "img-src": ["self", "https:", "data:"],

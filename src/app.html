@@ -12,7 +12,6 @@
     <!-- 預先連線至外部來源，縮短冷連線延遲 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
     <!-- 預載 LCP 首屏背景圖（CSS background 無法被預載掃描器發現，故顯式 preload） -->
     <link
@@ -21,12 +20,6 @@
       href="%sveltekit.assets%/bg.webp"
       fetchpriority="high" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha384-/o6I2CkkWC//PSjvWC/eYN7l3xM3tJm8ZzVkCOfp//W05QcE3mlGskpoHB6XqI+B"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover" class="font-noto">
