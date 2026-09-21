@@ -73,6 +73,8 @@ npm run check
 npm run build
 ```
 
+型別檢查透過 `svelte-check --tsgo` 使用 TypeScript 7（以 `@typescript/native` 別名安裝）。依 [Svelte 官方說明](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check#typescript-7-supports)，仍需保留 TypeScript 6，供 Svelte 工具鏈使用編譯器 API；因此 `npm outdated` 仍會列出 `typescript`，這是目前必要的相容性限制。
+
 Cloudflare Pages 使用 `npm run build`，輸出目錄設為 `.svelte-kit/cloudflare`。SvelteKit adapter 會產生 `_worker.js`、`_routes.json` 與 `_headers`。
 
 CSP 使用 per-request nonce；新增外部資源時，必須同步檢查 `svelte.config.js` 的 CSP directives。
