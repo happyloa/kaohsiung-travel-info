@@ -99,16 +99,6 @@ html.dark {
 
 /* 可重用的元件樣式 */
 @layer components {
-  /* 卡片外層漸層邊框 */
-  .card-gradient {
-    @apply rounded-2xl bg-gradient-to-br from-blue-100/80 via-white to-sky-100/70 p-0.5 transition-colors dark:from-blue-950/60 dark:via-slate-900 dark:to-sky-950/50;
-  }
-
-  /* 卡片內層容器 */
-  .card-inner {
-    @apply flex h-full flex-col overflow-hidden rounded-xl border border-blue-200/90 bg-white shadow-md dark:border-blue-900/60 dark:bg-slate-900;
-  }
-
   /* 分頁按鈕 */
   .page-btn {
     @apply flex items-center gap-1 px-4 py-2 text-sm font-medium text-blue-700 transition cursor-pointer hover:bg-blue-100 disabled:text-gray-400 disabled:hover:bg-transparent disabled:cursor-not-allowed dark:text-blue-300 dark:hover:bg-blue-950 dark:disabled:text-slate-600;
