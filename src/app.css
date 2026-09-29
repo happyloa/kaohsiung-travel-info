@@ -106,7 +106,7 @@ html.dark {
 
   /* 卡片資訊列 */
   .info-row {
-    @apply flex items-start gap-2;
+    @apply flex items-center gap-2;
   }
 
   /* 卡片資訊圖示 */
