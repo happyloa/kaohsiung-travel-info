@@ -21,9 +21,9 @@
       ></div>
       {#if info.Ticketinfo === "免費參觀"}
         <span
-          class="absolute left-3 top-3 rounded-full bg-emerald-500/90 px-3 py-1 text-xs font-medium text-white shadow"
+          class="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-emerald-500/90 px-3 py-1 text-xs text-white shadow"
         >
-          <Icon name="tag" class="h-3.5 w-3.5" /> 免費
+          <Icon name="tag" class="size-3.5" /> 免費
         </span>
       {/if}
       <div
