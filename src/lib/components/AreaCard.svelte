@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { SpotInfo } from "$lib/types";
-  import Icon from "$lib/components/Icon.svelte";
+  import type { SpotInfo } from "#lib/types.ts";
+  import Icon from "#lib/components/Icon.svelte";
 
   let { info }: { info: SpotInfo } = $props();
 </script>

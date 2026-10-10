@@ -1,4 +1,4 @@
-import type { Handle } from "@sveltejs/kit";
+import type { Handle } from "@sveltejs/kit/hooks";
 
 const securityHeaders: Record<string, string> = {
   "X-Content-Type-Options": "nosniff",

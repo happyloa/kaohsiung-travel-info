@@ -1,8 +1,8 @@
 <script lang="ts">
   import "../app.css";
-  import ThemeToggle from "$lib/components/ThemeToggle.svelte";
+  import ThemeToggle from "#lib/components/ThemeToggle.svelte";
   import { onMount } from "svelte";
-  import { initAOS } from "$lib/aos";
+  import { initAOS } from "#lib/aos.ts";
   import type { LayoutProps } from "./$types";
 
   let { children }: LayoutProps = $props();
@@ -11,7 +11,7 @@
   const siteName = "高雄市旅遊資訊網";
   const siteTitle = "高雄市旅遊資訊網 | Kaohsiung City Travel Info";
   const siteDescription =
-    "提供高雄市各區景點資訊、開放時間、地址、電話及票價查詢，並可依區域篩選和瀏覽熱門景點。";
+    "提供高雄市各區景點資訊、開放時間、地址、電話及免費參觀標示，支援行政區篩選與分頁瀏覽。";
   const siteImage = `${siteUrl}thumb.webp`;
 
   // 保持為可信任的靜態字串，避免 hydration markers 破壞 JSON-LD。

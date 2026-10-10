@@ -1,5 +1,5 @@
 import type { PageServerLoad } from "./$types";
-import type { SpotInfo } from "$lib/types";
+import type { SpotInfo } from "#lib/types.ts";
 
 const DATA_URL =
   "https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json";
@@ -53,7 +53,10 @@ async function fetchSpots(fetchFn: typeof fetch): Promise<SpotInfo[]> {
     throw new Error("旅遊資訊格式有誤，請稍後再試。");
   }
 
-  return records;
+  // 只傳送畫面使用的欄位，避免把完整描述與其他上游資料序列化到 HTML。
+  return records.map(({ _id, Name, Zone, Picture1, Opentime, Add, Tel, Ticketinfo }) => ({
+    _id, Name, Zone, Picture1, Opentime, Add, Tel, Ticketinfo,
+  }));
 }
 
 export const load = (async ({ fetch }) => {

@@ -2,6 +2,21 @@
 @import "tailwindcss";
 @import "aos/dist/aos.css";
 
+/* 動畫初始化前與 JavaScript 停用時，伺服器渲染的內容仍可閱讀。 */
+html:not(.aos-enabled) [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* 啟用 Tailwind CSS 4 的 dark mode class selector */
 @custom-variant dark (&:where(.dark, .dark *));
 

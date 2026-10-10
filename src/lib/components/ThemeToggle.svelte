@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Icon from "$lib/components/Icon.svelte";
+  import Icon from "#lib/components/Icon.svelte";
 
   let theme: "light" | "dark" = $state("light");
 
@@ -15,7 +15,11 @@
     } else {
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      // 儲存空間不可用時，仍允許切換目前頁面的主題。
+    }
   }
 
   // 主題已由 app.html 的 theme-init.js 於繪製前套用至 <html>，

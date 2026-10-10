@@ -2,9 +2,9 @@
   import { tick } from "svelte";
   import AOS from "aos";
   import type { PageProps } from "./$types";
-  import AreaSelect from "$lib/components/AreaSelect.svelte";
-  import HotButtons from "$lib/components/HotButtons.svelte";
-  import AreaCard from "$lib/components/AreaCard.svelte";
+  import AreaSelect from "#lib/components/AreaSelect.svelte";
+  import HotButtons from "#lib/components/HotButtons.svelte";
+  import AreaCard from "#lib/components/AreaCard.svelte";
 
   let { data: pageData }: PageProps = $props();
 
