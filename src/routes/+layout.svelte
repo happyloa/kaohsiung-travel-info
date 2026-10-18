@@ -1,8 +1,6 @@
 <script lang="ts">
   import "../app.css";
   import ThemeToggle from "#lib/components/ThemeToggle.svelte";
-  import { onMount } from "svelte";
-  import { initAOS } from "#lib/aos.ts";
   import type { LayoutProps } from "./$types";
 
   let { children }: LayoutProps = $props();
@@ -25,9 +23,6 @@
     description: siteDescription,
   })}</` + `script>`;
 
-  onMount(() => {
-    initAOS();
-  });
 </script>
 
 <svelte:head>

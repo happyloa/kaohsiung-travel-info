@@ -1,11 +1,12 @@
 <script lang="ts">
   import type { SpotInfo } from "#lib/types.ts";
   import Icon from "#lib/components/Icon.svelte";
+  import { reveal } from "#lib/reveal.ts";
 
   let { info }: { info: SpotInfo } = $props();
 </script>
 
-<li data-aos="fade-up">
+<li {@attach reveal()}>
   <article
     class="flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/90 bg-white shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl dark:border-blue-900/60 dark:bg-slate-900"
   >

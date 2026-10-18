@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { tick } from "svelte";
-  import AOS from "aos";
+  import { reveal } from "#lib/reveal.ts";
   import type { PageProps } from "./$types";
   import AreaSelect from "#lib/components/AreaSelect.svelte";
   import HotButtons from "#lib/components/HotButtons.svelte";
@@ -31,14 +30,6 @@
     }
   });
 
-  // DOM 更新後重新掃描目前頁面的 AOS 元素。
-  $effect(() => {
-    void pageItems;
-    void tick().then(() => {
-      AOS.refresh();
-    });
-  });
-
   function handleSelect(area: string) {
     selected = area;
     currentPage = 1;
@@ -51,7 +42,7 @@
 
 <header
   class="relative overflow-hidden bg-[url('/bg.webp')] bg-cover bg-center p-8 text-center text-white sm:p-12"
-  data-aos="fade-down"
+  {@attach reveal("down")}
 >
   <div
     class="absolute inset-0 bg-gradient-to-b from-blue-950/85 via-sky-900/65 to-slate-900/75"
@@ -69,7 +60,7 @@
 <main class="container mx-auto px-5 pb-12">
   <div
     class="-mt-10 rounded-3xl border border-blue-200 bg-white/95 px-6 py-5 text-center shadow-xl backdrop-blur transition-colors dark:border-blue-900/70 dark:bg-slate-900/95"
-    data-aos="fade-up"
+    {@attach reveal()}
   >
     <h2
       class="mb-2 text-2xl font-semibold text-blue-700 dark:text-blue-300"
@@ -80,8 +71,7 @@
   </div>
   <h3
     class="my-6 text-center text-2xl font-bold text-blue-900 transition-colors dark:text-blue-100"
-    data-aos="fade-up"
-    data-aos-delay="100"
+    {@attach reveal("up", 100)}
   >
     {selected || "全部景點"}
   </h3>
@@ -95,8 +85,7 @@
   {:else if pageItems.length > 0}
     <ul
       class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-      data-aos="fade-up"
-      data-aos-delay="150"
+      {@attach reveal("up", 150)}
     >
       {#each pageItems as item (item._id)}
         <AreaCard info={item} />
@@ -106,7 +95,7 @@
       <nav
         class="mt-8 flex justify-center"
         aria-label="景點分頁"
-        data-aos="fade-up"
+        {@attach reveal()}
       >
         <ul
           class="inline-flex items-stretch overflow-hidden rounded-full border border-blue-300 bg-white shadow-md transition-colors dark:border-blue-800 dark:bg-slate-900"
@@ -165,7 +154,7 @@
 
 <footer
   class="border-t border-blue-200 bg-gradient-to-b from-white to-blue-50/50 py-8 text-center transition-colors dark:border-blue-900/50 dark:from-slate-900 dark:to-blue-950/30"
-  data-aos="fade-up"
+  {@attach reveal()}
 >
   <a
     href="https://github.com/happyloa/Kaohsiung-travel-info"

@@ -9,7 +9,7 @@
 - 依行政區篩選景點，並提供熱門區域快速按鈕與分頁瀏覽。
 - 顯示景點照片、開放時間、地址、電話與免費參觀標示。
 - 支援深淺色模式，於頁面繪製前套用偏好以避免閃爍。
-- 使用 AOS 呈現滾動動畫，並尊重 `prefers-reduced-motion`。
+- 使用瀏覽器原生功能呈現滾動動畫，並尊重 `prefers-reduced-motion`。
 - 由伺服器端取得並驗證景點資料，讓初始 HTML 直接包含主要內容。
 - 動畫尚未初始化或停用 JavaScript 時，首批景點仍可閱讀；篩選、分頁與主題切換需要 JavaScript。
 - 提供 canonical、Open Graph、Twitter Card、JSON-LD、robots.txt 與 sitemap。
@@ -19,7 +19,7 @@
 - SvelteKit 3、Svelte 5
 - Tailwind CSS 4
 - Vite 8、TypeScript
-- AOS 2
+- IntersectionObserver、Web Animations API
 - Cloudflare Pages、`@sveltejs/adapter-cloudflare`
 
 ## 資料來源
@@ -51,7 +51,7 @@ src/
 ├── app.html                    # HTML 模板與資源提示
 ├── hooks.server.ts             # HTTP 安全標頭
 ├── lib/
-│   ├── aos.ts                  # AOS 初始化
+│   ├── reveal.ts               # 原生滾動進場動畫
 │   ├── types.ts                # 景點資料型別
 │   └── components/
 │       ├── AreaCard.svelte     # 景點卡片
@@ -82,7 +82,7 @@ npm audit
 
 也可執行 `npm run verify`，依序完成上述四項檢查。測試使用 Node.js 內建的測試工具，涵蓋正常與空資料、網路失敗、逾時、HTTP 錯誤及格式異常。
 
-型別檢查透過 `svelte-check --tsgo` 使用 TypeScript 7（以 `@typescript/native` 別名安裝）。依 [Svelte 官方說明](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check#typescript-7-supports)，仍需保留 TypeScript 6，供 Svelte 工具鏈使用編譯器 API；因此 `npm outdated` 仍會列出 `typescript`，這是目前必要的相容性限制。
+型別檢查使用 `svelte-check` 與單一 TypeScript 6。依 [Svelte 官方說明](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check#typescript-7-supports)，工具鏈仍需 TypeScript 6 的編譯器 API，因此 `npm outdated` 仍會列出 `typescript`。
 
 `@types/node` 維持在 24 系列，對應本專案驗證的 Node.js 24；`npm outdated` 列出的較新主版本型別不代表目前執行環境支援那些 API。
 
@@ -91,6 +91,17 @@ npm 12 預設封鎖未核准的依賴安裝腳本。`package.json` 的 `allowScr
 Cloudflare Pages 使用 `npm run build`，輸出目錄設為 `.svelte-kit/cloudflare`。SvelteKit adapter 會產生 `_worker.js`、`_routes.json` 與 `_headers`。
 
 CSP 使用 per-request nonce；新增外部資源時，必須同步檢查 `vite.config.ts` 的 CSP directives。SvelteKit 3 設定集中於 Vite plugin；本地模組透過 `package.json` 的 `#lib/*` subpath imports 引入，`tsconfig.json` 繼承 `$app/tsconfig`。
+
+目前的 10 個直接依賴均用於開發、檢查或建置：
+
+| 用途 | 套件 |
+| --- | --- |
+| SvelteKit 編譯與開發伺服器 | `svelte`、`@sveltejs/kit`、`@sveltejs/vite-plugin-svelte`、`vite` |
+| 樣式編譯 | `@tailwindcss/vite` |
+| Cloudflare 建置與本機模擬 | `@sveltejs/adapter-cloudflare`、`wrangler` |
+| 型別檢查 | `svelte-check`、`typescript`、`@types/node` |
+
+滾動動畫由 `src/lib/reveal.ts` 處理，不需額外套件。內容預設可見，動畫尚未啟動或 JavaScript 停用時仍可閱讀；元件卸載時會清理觀察器與動畫。Svelte 元件只使用可直接移除的 TypeScript 型別語法，不需額外的 script 預處理器。
 
 ## 效能與限制
 
