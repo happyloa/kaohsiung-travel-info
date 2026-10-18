@@ -34,7 +34,7 @@
 
 ## 本機開發
 
-需要 Node.js 22.17.0 以上版本；`.node-version` 記錄本專案驗證使用的 Node.js 24.21.0，`package.json` 則指定 npm 11.21.0。
+開發環境需使用 Node.js 22.22.2 以上的 22 系列、24.15.0 以上的 24 系列，或 26 以上版本，以符合 npm 12 的需求。`.node-version` 記錄本專案驗證使用的 Node.js 24.21.0，`package.json` 則指定 npm 12.2.0。
 
 ```bash
 npm ci
@@ -85,6 +85,8 @@ npm audit
 型別檢查透過 `svelte-check --tsgo` 使用 TypeScript 7（以 `@typescript/native` 別名安裝）。依 [Svelte 官方說明](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check#typescript-7-supports)，仍需保留 TypeScript 6，供 Svelte 工具鏈使用編譯器 API；因此 `npm outdated` 仍會列出 `typescript`，這是目前必要的相容性限制。
 
 `@types/node` 維持在 24 系列，對應本專案驗證的 Node.js 24；`npm outdated` 列出的較新主版本型別不代表目前執行環境支援那些 API。
+
+npm 12 預設封鎖未核准的依賴安裝腳本。`package.json` 的 `allowScripts` 僅核准目前鎖定版本的 esbuild 與 workerd；更新依賴後，先用 `npm install-scripts ls` 檢查，再核准確認可信的版本，並用 `npm install-scripts prune` 移除過期記錄。
 
 Cloudflare Pages 使用 `npm run build`，輸出目錄設為 `.svelte-kit/cloudflare`。SvelteKit adapter 會產生 `_worker.js`、`_routes.json` 與 `_headers`。
 
