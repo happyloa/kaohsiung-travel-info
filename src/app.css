@@ -1,5 +1,12 @@
-@import "@fontsource-variable/noto-sans-tc";
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Noto Sans TC Subset";
+  src: url("/fonts/noto-sans-tc-subset.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
 
 /* 啟用 Tailwind CSS 4 的 dark mode class selector */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -28,7 +35,7 @@ body {
   }
 
   .font-noto {
-    font-family: "Noto Sans TC Variable", system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-family: "Noto Sans TC Subset", system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
   }
 }
 
