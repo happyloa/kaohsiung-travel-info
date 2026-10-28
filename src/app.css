@@ -1,3 +1,4 @@
+@import "@fontsource-variable/noto-sans-tc";
 @import "tailwindcss";
 
 /* 啟用 Tailwind CSS 4 的 dark mode class selector */
@@ -27,7 +28,7 @@ body {
   }
 
   .font-noto {
-    font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-family: "Noto Sans TC Variable", system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
   }
 }
 
