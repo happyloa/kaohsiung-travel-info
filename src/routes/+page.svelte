@@ -42,7 +42,6 @@
 
 <header
   class="relative overflow-hidden bg-[url('/bg.webp')] bg-cover bg-center p-8 text-center text-white sm:p-12"
-  {@attach reveal("down")}
 >
   <div
     class="absolute inset-0 bg-gradient-to-b from-blue-950/85 via-sky-900/65 to-slate-900/75"
@@ -161,9 +160,8 @@
     target="_blank"
     rel="noopener noreferrer"
     class="inline-flex items-center gap-3 rounded-full bg-blue-100/80 px-6 py-3 text-blue-700 shadow-sm transition-all hover:bg-blue-200 hover:shadow-md dark:bg-blue-950/60 dark:text-blue-300 dark:hover:bg-blue-900/70"
-    aria-label="前往 GitHub 專案頁面"
   >
-    <img src="/github.webp" alt="GitHub" class="h-6 w-6 dark:invert" />
+    <img src="/github.webp" alt="" class="h-6 w-6 dark:invert" />
     <span class="font-medium">View on GitHub</span>
   </a>
   <p class="mt-4 text-sm text-blue-600/70 dark:text-blue-400/60">

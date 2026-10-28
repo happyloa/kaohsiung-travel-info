@@ -9,10 +9,6 @@
     <!-- 於繪製前套用主題，消除深色模式 FOUC（阻塞式、同源，符合 CSP） -->
     <script src="%sveltekit.assets%/theme-init.js"></script>
 
-    <!-- 預先連線至外部來源，縮短冷連線延遲 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <!-- 預載 LCP 首屏背景圖（CSS background 無法被預載掃描器發現，故顯式 preload） -->
     <link
       rel="preload"
