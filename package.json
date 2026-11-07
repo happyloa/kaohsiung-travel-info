@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.2",
   "type": "module",
-  "packageManager": "npm@12.2.0",
+  "packageManager": "npm@12.2.2",
   "engines": {
     "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
@@ -16,24 +16,26 @@
     "preview": "vite preview",
     "prepare": "svelte-kit sync",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
-    "verify": "npm run check && npm test && npm run build && npm audit",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    "verify": "npm run check && npm test && npm run build && npm run audit",
+    "audit": "node --experimental-strip-types scripts/audit.ts",
+    "check": "svelte-kit sync && svelte-check --tsgo --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsgo --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-cloudflare": "^8.0.1",
-    "@sveltejs/kit": "^3.1.0",
+    "@sveltejs/adapter-cloudflare": "^8.0.2",
+    "@sveltejs/kit": "^3.1.1",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
-    "@tailwindcss/vite": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.5",
     "@types/node": "^24.19.2",
-    "svelte": "^5.57.2",
-    "svelte-check": "^4.7.7",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "svelte": "^5.57.3",
+    "svelte-check": "^4.7.8",
     "typescript": "~6.0.3",
-    "vite": "^8.3.4",
-    "wrangler": "^4.151.1"
+    "vite": "^8.3.6",
+    "wrangler": "^4.158.0"
   },
   "allowScripts": {
     "esbuild@0.28.2": true,
-    "workerd@1.20261023.1": true
+    "workerd@1.20261104.1": true
   }
 }

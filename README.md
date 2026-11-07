@@ -34,7 +34,7 @@
 
 ## 本機開發
 
-開發環境需使用 Node.js 22.22.2 以上的 22 系列、24.15.0 以上的 24 系列，或 26 以上版本，以符合 npm 12 的需求。`.node-version` 記錄本專案驗證使用的 Node.js 24.21.0，`package.json` 則指定 npm 12.2.0。
+開發環境需使用 Node.js 22.22.2 以上的 22 系列、24.15.0 以上的 24 系列，或 26 以上版本，以符合 npm 12 的需求。`.node-version` 記錄本專案驗證使用的 Node.js 24.22.2，`package.json` 則指定 npm 12.2.2。
 
 ```bash
 npm ci
@@ -77,14 +77,16 @@ vite.config.ts                  # SvelteKit、Cloudflare adapter、CSP 與 Tailw
 npm run check
 npm test
 npm run build
-npm audit
+npm run audit
 ```
 
 也可執行 `npm run verify`，依序完成上述四項檢查。測試使用 Node.js 內建的測試工具，涵蓋正常與空資料、網路失敗、逾時、HTTP 錯誤及格式異常。
 
-型別檢查使用 `svelte-check` 與單一 TypeScript 6。依 [Svelte 官方說明](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check#typescript-7-supports)，工具鏈仍需 TypeScript 6 的編譯器 API，因此 `npm outdated` 仍會列出 `typescript`。
+型別檢查使用最新穩定版 TypeScript 7（`@typescript/native` alias）及 `svelte-check --tsgo`。依 [Svelte 官方說明](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check#typescript-7-supports)，工具鏈仍需 TypeScript 6 的編譯器 API，因此同時保留 `typescript@~6.0.3`，`npm outdated` 仍會列出這個相容依賴。
 
 `@types/node` 維持在 24 系列，對應本專案驗證的 Node.js 24；`npm outdated` 列出的較新主版本型別不代表目前執行環境支援那些 API。
+
+`npm run audit` 檢查所有風險等級，僅排除 CNA 已於 2026-11-02 [正式撤銷的 CVE-2026-93753](https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/93xxx/CVE-2026-93753.json) 及其純相依鏈項目。原始 `npm audit` 暫時仍會列出 4 個 low 項目；其他公告、連線失敗與無效報告仍使驗證失敗。npm 資料庫同步後可移除此例外。
 
 npm 12 預設封鎖未核准的依賴安裝腳本。`package.json` 的 `allowScripts` 僅核准目前鎖定版本的 esbuild 與 workerd；更新依賴後，先用 `npm install-scripts ls` 檢查，再核准確認可信的版本，並用 `npm install-scripts prune` 移除過期記錄。
 
@@ -92,14 +94,14 @@ Cloudflare Pages 使用 `npm run build`，輸出目錄設為 `.svelte-kit/cloudf
 
 CSP 使用 per-request nonce；新增外部資源時，必須同步檢查 `vite.config.ts` 的 CSP directives。SvelteKit 3 設定集中於 Vite plugin；本地模組透過 `package.json` 的 `#lib/*` subpath imports 引入，`tsconfig.json` 繼承 `$app/tsconfig`。
 
-目前的 10 個直接依賴均用於開發、檢查或建置：
+目前的 11 個直接依賴均用於開發、檢查或建置：
 
 | 用途 | 套件 |
 | --- | --- |
 | SvelteKit 編譯與開發伺服器 | `svelte`、`@sveltejs/kit`、`@sveltejs/vite-plugin-svelte`、`vite` |
 | 樣式編譯 | `@tailwindcss/vite` |
 | Cloudflare 建置與本機模擬 | `@sveltejs/adapter-cloudflare`、`wrangler` |
-| 型別檢查 | `svelte-check`、`typescript`、`@types/node` |
+| 型別檢查 | `svelte-check`、`@typescript/native`、`typescript`、`@types/node` |
 
 滾動動畫由 `src/lib/reveal.ts` 處理，不需額外套件。內容預設可見，動畫尚未啟動或 JavaScript 停用時仍可閱讀；元件卸載時會清理觀察器與動畫。Svelte 元件只使用可直接移除的 TypeScript 型別語法，不需額外的 script 預處理器。
 
