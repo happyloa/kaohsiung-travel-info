@@ -13,8 +13,12 @@
     <div class="relative h-40">
       <img
         src={info.Picture1}
+        srcset={info.PictureSrcSet}
+        sizes="(min-width: 1536px) 488px, (min-width: 1280px) 402px, (min-width: 1024px) 317px, (min-width: 768px) 356px, (min-width: 640px) 292px, calc(100vw - 40px)"
         alt="{info.Name} - {info.Zone}景點照片"
         loading="lazy"
+        fetchpriority="low"
+        decoding="async"
         class="size-full object-cover"
       />
       <div

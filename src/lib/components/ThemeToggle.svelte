@@ -22,7 +22,7 @@
     }
   }
 
-  // 主題已由 app.html 的 theme-init.js 於繪製前套用至 <html>，
+  // 主題已由 app.html 的初始腳本於繪製前套用至 <html>，
   // 此處僅讀回目前狀態讓按鈕圖示一致，避免重複判斷與二次閃爍。
   onMount(() => {
     theme = document.documentElement.classList.contains("dark")

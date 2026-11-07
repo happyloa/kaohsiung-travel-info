@@ -3,6 +3,7 @@ export interface SpotInfo {
   Name: string;
   Zone: string;
   Picture1: string;
+  PictureSrcSet?: string;
   Opentime: string;
   Add: string;
   Tel: string;

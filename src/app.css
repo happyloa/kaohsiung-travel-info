@@ -1,12 +1,5 @@
 @import "tailwindcss";
-
-@font-face {
-  font-family: "Noto Sans TC Subset";
-  src: url("/fonts/noto-sans-tc-subset.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
+@import "./lib/assets/fonts.css";
 
 /* 啟用 Tailwind CSS 4 的 dark mode class selector */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -112,7 +105,7 @@ html.dark {
 
   /* 卡片資訊列 */
   .info-row {
-    @apply flex items-center gap-2;
+    @apply flex items-start gap-2;
   }
 
   /* 卡片資訊圖示 */

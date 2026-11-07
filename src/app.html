@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
 
-    <!-- 於繪製前套用主題，消除深色模式 FOUC（阻塞式、同源，符合 CSP） -->
-    <script src="%sveltekit.assets%/theme-init.js"></script>
-
-    <!-- 預載 LCP 首屏背景圖（CSS background 無法被預載掃描器發現，故顯式 preload） -->
-    <link
-      rel="preload"
-      as="image"
-      href="%sveltekit.assets%/bg.webp"
-      fetchpriority="high" />
+    <!-- 於繪製前套用主題；nonce 符合 CSP，也省去阻塞繪製的網路請求。 -->
+    <script nonce="%sveltekit.nonce%">
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch {}
+        var dark = saved === "dark" || (saved !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", dark);
+      })();
+    </script>
 
     %sveltekit.head%
   </head>

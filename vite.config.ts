@@ -6,7 +6,13 @@ import adapter from "@sveltejs/adapter-cloudflare";
 export default defineConfig({
   plugins: [
     sveltekit({
-      adapter: adapter(),
+      adapter: adapter({
+        routes: {
+          exclude: ["<build>", "/images/*", "/fonts/*", "/bg.webp", "/favicon.webp",
+            "/github.webp", "/robots.txt", "/sitemap.xml"],
+        },
+      }),
+      inlineStyleThreshold: 40_000,
       csp: {
         mode: "nonce",
         directives: {
