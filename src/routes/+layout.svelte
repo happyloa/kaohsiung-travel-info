@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../app.css";
   import ThemeToggle from "#lib/components/ThemeToggle.svelte";
+  import { favicon } from "#lib/media.json";
   import type { LayoutProps } from "./$types";
 
   let { children }: LayoutProps = $props();
@@ -27,6 +28,7 @@
 
 <svelte:head>
   <title>{siteTitle}</title>
+  <link rel="icon" type="image/webp" href={favicon} />
   <meta name="description" content={siteDescription} />
   <link rel="canonical" href={siteUrl} />
 

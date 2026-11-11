@@ -1,246 +1,86 @@
 {
+  "favicon": "/images/favicon-f6230b10c02fa496.webp",
+  "github": "/images/github-60acb00f4194cdce.webp",
   "hero": [
     {
-      "src": "/images/hero-ee69845cd1fbab48-640.webp",
       "width": 640,
-      "height": 360
+      "height": 360,
+      "avif": "/images/hero-d719f27050b2e9f5-640.avif",
+      "webp": "/images/hero-ee69845cd1fbab48-640.webp"
     },
     {
-      "src": "/images/hero-6fcac8110b7d2243-800.webp",
       "width": 800,
-      "height": 450
+      "height": 450,
+      "avif": "/images/hero-2125b0d537d28388-800.avif",
+      "webp": "/images/hero-6fcac8110b7d2243-800.webp"
     },
     {
-      "src": "/images/hero-01929f90c401e1ec-1280.webp",
       "width": 1280,
-      "height": 720
+      "height": 720,
+      "avif": "/images/hero-bea0e114e9348219-1280.avif",
+      "webp": "/images/hero-01929f90c401e1ec-1280.webp"
     }
   ],
-  "icon": "/images/github-60acb00f4194cdce.webp",
+  "spotWidths": [
+    480,
+    800
+  ],
   "spots": {
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E4%B8%AD%E9%83%BD%E5%94%90%E6%A6%AE%E7%A3%9A%E7%AA%AF%E5%BB%A001.jpg": [
-      "/images/spots/9d0c96b6e5ad7989-480.webp",
-      "/images/spots/c31a00daac080aa6-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E4%B8%AD%E9%83%BD%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9207.jpg": [
-      "/images/spots/0cd53879e230d9fb-480.webp",
-      "/images/spots/3831f9f82daf31c2-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E6%84%9B%E6%B2%B3%E4%B9%8B%E5%BF%83%E7%85%A7-%E5%A4%9C%E6%99%9A.jpg": [
-      "/images/spots/c3e46b4c9acfadff-480.webp",
-      "/images/spots/3ce452e9ae5595d3-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E6%96%B0%E5%AE%A2%E5%AE%B6%E6%96%87%E7%89%A9%E5%9C%92%E5%8D%8002.jpg": [
-      "/images/spots/281be68fde9e1938-480.webp",
-      "/images/spots/f40e0de422bb5b7c-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E6%AA%A8%E4%BB%94%E6%9E%97%E5%9F%A4%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9201.jpg": [
-      "/images/spots/44138b205e56ccf3-480.webp",
-      "/images/spots/919b90c8c72acaa9-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%BB%81%E6%AD%A6%E5%8D%80/%E4%B9%9D%E7%95%AA%E5%9F%A4%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9201.jpg": [
-      "/images/spots/6903293eb0a9e976-480.webp",
-      "/images/spots/33fcd013f710445b-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%A7%E9%96%80%E5%8D%80/%E5%85%A7%E9%96%80%E5%8F%A4%E5%8E%9D01.jpg": [
-      "/images/spots/9dea073fb70e3139-480.webp",
-      "/images/spots/e6962cc599703a44-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%A7%E9%96%80%E5%8D%80/%E5%85%A7%E9%96%80%E9%9B%81%E9%96%80%E7%85%99%E9%9B%A8.jpg": [
-      "/images/spots/2f9e58c516aba47e-480.webp",
-      "/images/spots/d97966ba3e715e42-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%AD%E9%BE%9C%E5%8D%80/%E5%9C%8B%E5%AF%B6%E5%85%AD%E9%BE%9C%E5%A4%A7%E4%BD%9B.jpg": [
-      "/images/spots/99377e8ee8f206c9-480.webp",
-      "/images/spots/fd7e90e29d19ad00-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%AD%E9%BE%9C%E5%8D%80/%E9%9D%92%E6%98%A5%E4%B8%8D%E8%80%81%E6%B3%89%E9%96%8B%E8%B3%A3.jpg": [
-      "/images/spots/f1e2083a2e032805-480.webp",
-      "/images/spots/daa3a6ec0935ecc8-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%89%8D%E9%87%91%E5%8D%80/r9%E4%B8%AD%E5%A4%AE%E5%85%AC%E5%9C%92%E7%AB%99-%E6%9C%AA%E4%BE%86%E4%B9%8B%E7%9C%BC1_%E9%AB%98%E9%9B%84%E6%8D%B7%E9%81%8B%E6%8F%90%E4%BE%9B.jpg": [
-      "/images/spots/64cee0742936d1e3-480.webp",
-      "/images/spots/0ce06c574a6c9558-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%89%8D%E9%8E%AE%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B8%82%E6%BC%81%E6%A5%AD%E6%96%87%E5%8C%96%E9%A4%A801.jpg": [
-      "/images/spots/d65b71610f40e51e-480.webp",
-      "/images/spots/f95de93a1e1183b8-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%89%8D%E9%8E%AE%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E5%9C%96%E6%9B%B8%E7%B8%BD%E9%A4%A8%E7%A9%BA%E6%8B%8D%E7%85%A7.jpg": [
-      "/images/spots/d02f3f72241b5547-480.webp",
-      "/images/spots/6a66e5c51bd0691e-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E4%BD%9B%E5%85%89%E5%B1%B1%E5%A4%A7%E4%BD%9B%E7%A9%BA%E6%8B%8D%E7%85%A7.jpg": [
-      "/images/spots/6575e82dbd5f28dc-480.webp",
-      "/images/spots/c53f239b9806bad0-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E4%BD%9B%E5%85%89%E7%B7%A3%E7%BE%8E%E8%A1%93%E9%A4%A8.jpg": [
-      "/images/spots/02865389e3ac40b8-480.webp",
-      "/images/spots/5da055a73d636300-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E4%BF%A1%E8%AA%BC%E9%AB%98%E7%88%BE%E5%A4%AB%E7%90%83%E5%A0%B42.jpg": [
-      "/images/spots/b34549dc8a55b568-480.webp",
-      "/images/spots/4e28e987d3d45cb2-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E5%A7%91%E5%A9%86%E5%AF%AE%E8%8E%8A%E5%AE%B6%E5%8F%A4%E5%8E%9D02.jpg": [
-      "/images/spots/f99a5bfcd33be9e7-480.webp",
-      "/images/spots/060535acabb81ccc-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E6%9D%B1%E7%85%A7%E5%B1%B1%E9%97%9C%E5%B8%9D%E5%BB%9F01.jpg": [
-      "/images/spots/a18990b761087dcf-480.webp",
-      "/images/spots/8a76dbb96f3bf25a-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E7%AB%B9%E5%AF%AE%E5%8F%96%E6%B0%B4%E7%AB%9904.jpg": [
-      "/images/spots/633f66865c52d283-480.webp",
-      "/images/spots/ce12cbcf8b64568f-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E8%87%BA%E7%81%A3%E5%A4%A9%E5%A3%87.jpg": [
-      "/images/spots/750e3735dc5d7c37-480.webp",
-      "/images/spots/2fa0a88dbb53a744-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E8%A7%80%E9%9F%B3%E5%B1%B1%E9%AB%98%E7%88%BE%E5%A4%AB%E7%90%8301.jpg": [
-      "/images/spots/1d18a1c8115edbd8-480.webp",
-      "/images/spots/cf47bdab7e2faed5-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B0%8F%E6%B8%AF%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B8%82%E5%A4%A9%E6%96%87%E6%95%99%E8%82%B2%E9%A4%A801.jpg": [
-      "/images/spots/1edfa09cb7936e88-480.webp",
-      "/images/spots/bba977f1592723b7-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B0%8F%E6%B8%AF%E5%8D%80/r4%E9%AB%98%E9%9B%84%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4%E7%AB%99-%E5%87%9D%E8%81%9A%E7%9A%84%E7%B6%A0%E5%AF%B6%E7%9F%B31_%E9%AB%98%E9%9B%84%E6%8D%B7%E9%81%8B%E6%8F%90%E4%BE%9B.jpg": [
-      "/images/spots/7635b5afc1f26a6b-480.webp",
-      "/images/spots/e6cfe752b3827858-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E5%85%A8%E5%8F%B0%E5%94%AF%E4%B8%80%E7%9A%AE%E5%BD%B1%E6%88%B2%E9%A4%A8%E5%9C%A8%E5%B2%A1%E5%B1%B1%EF%BC%8C%E6%AF%8F%E5%91%A8%E9%83%BD%E6%9C%89%E5%9B%BA%E5%AE%9A%E6%88%B2%E5%9C%98%E6%BC%94%E5%87%BA.jpg": [
-      "/images/spots/2436604224079952-480.webp",
-      "/images/spots/ed3d1e74e720c356-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E5%8F%B0%E7%81%A3%E6%BB%B7%E5%91%B3%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg": [
-      "/images/spots/bf29d3c4b503a7d1-480.webp",
-      "/images/spots/46379217074bbb53-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E5%B2%A1%E5%B1%B1%E6%96%87%E5%8C%96%E4%B8%AD%E5%BF%8301.jpg": [
-      "/images/spots/1edf6ee484f078b3-480.webp",
-      "/images/spots/5fd54ab636e72821-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E7%A9%BA%E8%BB%8D%E8%BB%8D%E5%8F%B2%E9%A4%A8%E5%85%A7%E9%83%A8%E4%BF%9D%E5%AD%98%E7%8F%8D%E8%B2%B4%E6%AD%B7%E5%8F%B2%E7%A9%BA%E8%BB%8D%E6%96%87%E7%89%A9.jpg": [
-      "/images/spots/f5a7595185787d0d-480.webp",
-      "/images/spots/620d8a6f56dfbc02-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E5%8E%9F%E7%94%9F%E6%A4%8D%E7%89%A9%E5%9C%9201.jpg": [
-      "/images/spots/13ff2f1e5a907254-480.webp",
-      "/images/spots/709f2a43626db20a-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E5%B7%A6%E7%87%9F%E8%81%96%E5%A5%B3%E5%B0%8F%E5%BE%B7%E8%98%AD%E5%A0%8202.jpg": [
-      "/images/spots/4c07fcb3d9b2f0b3-480.webp",
-      "/images/spots/1cb1236b73c0f33d-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E6%B4%B2%E4%BB%94%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9202.jpg": [
-      "/images/spots/4a1584188936232e-480.webp",
-      "/images/spots/351e997b6fdaf7d9-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E8%93%AE%E6%BD%AD%E6%BB%91%E6%B0%B4%E4%B8%BB%E9%A1%8C%E6%A8%82%E5%9C%92.jpg": [
-      "/images/spots/388678b0834ba71a-480.webp",
-      "/images/spots/0719129c0e960190-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E8%96%9B%E5%AE%B6%E5%8F%A4%E5%8E%9D01.jpg": [
-      "/images/spots/ca409e13af9546ad-480.webp",
-      "/images/spots/ce55b04c92d5020f-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B7%A8%E8%9B%8B02.jpg": [
-      "/images/spots/f980e082885c49be-480.webp",
-      "/images/spots/13be278ed2d4fcf4-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%97%97%E6%B4%A5%E5%8D%80/%E6%97%97%E5%90%8E%E7%87%88%E5%A1%9401.jpg": [
-      "/images/spots/afef0404076ad71c-480.webp",
-      "/images/spots/3b989bd882d4deef-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%9D%89%E6%9E%97%E5%8D%80/%E8%91%AB%E8%98%86%E9%9B%95%E5%88%BB%E8%97%9D%E8%A1%93%E9%A4%A8-8.jpg": [
-      "/images/spots/c1b30a6eb656e34a-480.webp",
-      "/images/spots/314c5e33a148803d-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%A2%93%E5%AE%98%E5%8D%80/%E5%90%8C%E5%AE%89%E5%BC%B5%E5%AE%B6%E5%8F%A4%E5%8E%9D06.jpg": [
-      "/images/spots/8934770f2978f95c-480.webp",
-      "/images/spots/5bb596ec5f89078e-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%A5%A0%E6%A2%93%E5%8D%80/%E7%B4%85%E6%A8%B9%E6%9E%97%E8%8C%84%E8%8B%B3%E6%BA%AA%E4%BF%9D%E8%AD%B7%E5%8D%8001.jpg": [
-      "/images/spots/e499db6e71f58d0c-480.webp",
-      "/images/spots/a9a3462e95d72bfc-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B0%E5%AF%AE%E5%8D%80/%E7%94%B0%E5%AF%AE%E6%9C%88%E4%B8%96%E7%95%8C%E6%B9%96%E8%88%87%E6%83%A1%E5%9C%B0.jpg": [
-      "/images/spots/08fc80fd9e8d472f-480.webp",
-      "/images/spots/9a86e3bc836f44e6-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%85%AD%E7%BE%A9%E5%B1%B1-1.jpg": [
-      "/images/spots/ae6d456fd9707ce3-480.webp",
-      "/images/spots/37bc9f89b7a4a83c-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%8C%96%E7%9F%B3%E9%A4%A8-1.jpg": [
-      "/images/spots/eb0ea9abac78f918-480.webp",
-      "/images/spots/b050458054874f1d-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%95%86%E5%9C%88-2.jpg": [
-      "/images/spots/5be161da8f80ed93-480.webp",
-      "/images/spots/ad203018d010daa0-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%A4%A7%E6%A9%8B-1.jpg": [
-      "/images/spots/9d34d2b25b49a52c-480.webp",
-      "/images/spots/b0f804de289e53d9-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E9%99%B3%E5%AE%B6%E9%A6%99%E8%8D%89%E5%9C%92-11%20-%20%E8%A4%87%E8%A3%BD.jpg": [
-      "/images/spots/873e3cf2a3db20ad-480.webp",
-      "/images/spots/edab4de28a53f91d-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%B4%8D%E7%91%AA%E5%A4%8F%E5%B0%8F%E6%9E%97%E6%9D%91%E7%B4%80%E5%BF%B5%E5%85%AC%E5%9C%92-15.jpg": [
-      "/images/spots/70294530f96ffc9e-480.webp",
-      "/images/spots/f71db221e90a27c5-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%B4%8D%E7%91%AA%E5%A4%8F%E9%8C%AB%E5%AE%89%E5%B1%B1-14.jpg": [
-      "/images/spots/3c43ad29b30002ac-480.webp",
-      "/images/spots/ecf80ff85b0ba1a2-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%BE%8E%E6%BF%83%E5%8D%80/%E7%AB%B9%E5%AD%90%E9%96%80%E7%99%BC%E9%9B%BB%E5%BB%A0.jpg": [
-      "/images/spots/3ab24c31767b7ece-480.webp",
-      "/images/spots/7d058b4b73c4b42d-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%BE%8E%E6%BF%83%E5%8D%80/%E7%BE%8E%E6%BF%83%E6%95%AC%E5%AD%97%E4%BA%AD.jpg": [
-      "/images/spots/5d8c60b1484a4371-480.webp",
-      "/images/spots/8e2d55788bfb4af4-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8B%93%E9%9B%85%E5%8D%80/%E5%85%89%E6%A6%AE%E7%A2%BC%E9%A0%AD%E8%88%B9%E9%9A%BB.jpg": [
-      "/images/spots/6b0196511ffaf3b8-480.webp",
-      "/images/spots/9dbe930f10024edd-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8B%93%E9%9B%85%E5%8D%80/%E9%AB%98%E9%9B%84%E6%B8%85%E7%9C%9F%E5%AF%BA.jpg": [
-      "/images/spots/2e4fd0c8b555abc3-480.webp",
-      "/images/spots/eda205354532b5ed-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8B%93%E9%9B%85%E5%8D%80/%E9%AB%98%E9%9B%84%E9%97%9C%E5%B8%9D%E5%BB%9F.jpg": [
-      "/images/spots/7c61888fec5da063-480.webp",
-      "/images/spots/b486c20b20263516-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%82%E6%9E%97%E5%8D%80/%E5%BE%97%E6%A8%82%E6%97%A5%E5%98%8E%E5%A4%A7%E6%A9%8B.jpg": [
-      "/images/spots/fcbd3fa7def12676-480.webp",
-      "/images/spots/ac1c85966516f34b-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%82%E6%9E%97%E5%8D%80/%E8%8C%82%E6%9E%97%E5%A4%9A%E7%B4%8D%E9%83%A8%E8%90%BD-2-2.jpg": [
-      "/images/spots/7ebde5b7a0131de3-480.webp",
-      "/images/spots/0a97a4e4ec18d7ba-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%82%E6%9E%97%E5%8D%80/%E8%8C%82%E6%9E%97%E5%A4%9A%E7%B4%8D%E9%AB%98%E5%90%8A%E6%A9%8B.jpg": [
-      "/images/spots/f82eab65936a5a63-480.webp",
-      "/images/spots/bc2b5ffb24ac75b6-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%84%E8%90%A3%E5%8D%80/%E7%99%BD%E9%9B%B2%E5%AF%BA02.jpg": [
-      "/images/spots/6de56533d687b037-480.webp",
-      "/images/spots/aea0a81a2033ff13-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E9%B3%B3%E5%B1%B1%E5%8D%80/%E9%B3%B3%E5%B1%B1%E4%BB%99%E5%85%AC%E5%BB%9F%2057.jpg": [
-      "/images/spots/b7381d223dfe79c8-480.webp",
-      "/images/spots/b7ad653969aba4a7-800.webp"
-    ],
-    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E9%BC%93%E5%B1%B1%E5%8D%80/%E9%AB%98%E9%9B%84%E6%B8%AF3.jpg": [
-      "/images/spots/a5b522353332fa89-480.webp",
-      "/images/spots/dbab7b1ea77e9e95-800.webp"
-    ]
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E4%B8%AD%E9%83%BD%E5%94%90%E6%A6%AE%E7%A3%9A%E7%AA%AF%E5%BB%A001.jpg": "1f412640de9ea48c",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E4%B8%AD%E9%83%BD%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9207.jpg": "3b86f045739b8021",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E6%84%9B%E6%B2%B3%E4%B9%8B%E5%BF%83%E7%85%A7-%E5%A4%9C%E6%99%9A.jpg": "9e75e557ed60258b",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E6%96%B0%E5%AE%A2%E5%AE%B6%E6%96%87%E7%89%A9%E5%9C%92%E5%8D%8002.jpg": "c91d85d28d027667",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%B8%89%E6%B0%91%E5%8D%80/%E6%AA%A8%E4%BB%94%E6%9E%97%E5%9F%A4%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9201.jpg": "914d648e24da8989",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E4%BB%81%E6%AD%A6%E5%8D%80/%E4%B9%9D%E7%95%AA%E5%9F%A4%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9201.jpg": "cdafd3609d49d86c",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%A7%E9%96%80%E5%8D%80/%E5%85%A7%E9%96%80%E5%8F%A4%E5%8E%9D01.jpg": "529b1433d87a122a",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%A7%E9%96%80%E5%8D%80/%E5%85%A7%E9%96%80%E9%9B%81%E9%96%80%E7%85%99%E9%9B%A8.jpg": "6854c241856bf4f4",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%AD%E9%BE%9C%E5%8D%80/%E5%9C%8B%E5%AF%B6%E5%85%AD%E9%BE%9C%E5%A4%A7%E4%BD%9B.jpg": "96bf79284b58a847",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%85%AD%E9%BE%9C%E5%8D%80/%E9%9D%92%E6%98%A5%E4%B8%8D%E8%80%81%E6%B3%89%E9%96%8B%E8%B3%A3.jpg": "0995d683a574e324",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%89%8D%E9%87%91%E5%8D%80/r9%E4%B8%AD%E5%A4%AE%E5%85%AC%E5%9C%92%E7%AB%99-%E6%9C%AA%E4%BE%86%E4%B9%8B%E7%9C%BC1_%E9%AB%98%E9%9B%84%E6%8D%B7%E9%81%8B%E6%8F%90%E4%BE%9B.jpg": "67e0fcff38683ace",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%89%8D%E9%8E%AE%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B8%82%E6%BC%81%E6%A5%AD%E6%96%87%E5%8C%96%E9%A4%A801.jpg": "31437725e7fe479c",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%89%8D%E9%8E%AE%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E5%9C%96%E6%9B%B8%E7%B8%BD%E9%A4%A8%E7%A9%BA%E6%8B%8D%E7%85%A7.jpg": "63bdd21261dc9e75",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E4%BD%9B%E5%85%89%E5%B1%B1%E5%A4%A7%E4%BD%9B%E7%A9%BA%E6%8B%8D%E7%85%A7.jpg": "a491ec54710ed695",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E4%BD%9B%E5%85%89%E7%B7%A3%E7%BE%8E%E8%A1%93%E9%A4%A8.jpg": "46f953e865c4f291",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E4%BF%A1%E8%AA%BC%E9%AB%98%E7%88%BE%E5%A4%AB%E7%90%83%E5%A0%B42.jpg": "6b766b2047929533",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E5%A7%91%E5%A9%86%E5%AF%AE%E8%8E%8A%E5%AE%B6%E5%8F%A4%E5%8E%9D02.jpg": "5850be0227435759",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E6%9D%B1%E7%85%A7%E5%B1%B1%E9%97%9C%E5%B8%9D%E5%BB%9F01.jpg": "05b0f2cd01cb7a46",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E7%AB%B9%E5%AF%AE%E5%8F%96%E6%B0%B4%E7%AB%9904.jpg": "4c4d73df1d54f9c3",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E8%87%BA%E7%81%A3%E5%A4%A9%E5%A3%87.jpg": "0df66538ef9c80ca",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%A4%A7%E6%A8%B9%E5%8D%80/%E8%A7%80%E9%9F%B3%E5%B1%B1%E9%AB%98%E7%88%BE%E5%A4%AB%E7%90%8301.jpg": "c8b8025347d741fc",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B0%8F%E6%B8%AF%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B8%82%E5%A4%A9%E6%96%87%E6%95%99%E8%82%B2%E9%A4%A801.jpg": "97a61fb5c2a0c1fa",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B0%8F%E6%B8%AF%E5%8D%80/r4%E9%AB%98%E9%9B%84%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4%E7%AB%99-%E5%87%9D%E8%81%9A%E7%9A%84%E7%B6%A0%E5%AF%B6%E7%9F%B31_%E9%AB%98%E9%9B%84%E6%8D%B7%E9%81%8B%E6%8F%90%E4%BE%9B.jpg": "74b668a91e7df3dc",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E5%85%A8%E5%8F%B0%E5%94%AF%E4%B8%80%E7%9A%AE%E5%BD%B1%E6%88%B2%E9%A4%A8%E5%9C%A8%E5%B2%A1%E5%B1%B1%EF%BC%8C%E6%AF%8F%E5%91%A8%E9%83%BD%E6%9C%89%E5%9B%BA%E5%AE%9A%E6%88%B2%E5%9C%98%E6%BC%94%E5%87%BA.jpg": "ffef8dc0b13be354",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E5%8F%B0%E7%81%A3%E6%BB%B7%E5%91%B3%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg": "41423a21e6c46f56",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E5%B2%A1%E5%B1%B1%E6%96%87%E5%8C%96%E4%B8%AD%E5%BF%8301.jpg": "7464dd13e7d87043",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B2%A1%E5%B1%B1%E5%8D%80/%E7%A9%BA%E8%BB%8D%E8%BB%8D%E5%8F%B2%E9%A4%A8%E5%85%A7%E9%83%A8%E4%BF%9D%E5%AD%98%E7%8F%8D%E8%B2%B4%E6%AD%B7%E5%8F%B2%E7%A9%BA%E8%BB%8D%E6%96%87%E7%89%A9.jpg": "f3f5594f363c8c62",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E5%8E%9F%E7%94%9F%E6%A4%8D%E7%89%A9%E5%9C%9201.jpg": "5d1ffc670eba6319",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E5%B7%A6%E7%87%9F%E8%81%96%E5%A5%B3%E5%B0%8F%E5%BE%B7%E8%98%AD%E5%A0%8202.jpg": "f75fbc75f3e30779",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E6%B4%B2%E4%BB%94%E6%BF%95%E5%9C%B0%E5%85%AC%E5%9C%9202.jpg": "4fb855cdfaaf1014",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E8%93%AE%E6%BD%AD%E6%BB%91%E6%B0%B4%E4%B8%BB%E9%A1%8C%E6%A8%82%E5%9C%92.jpg": "1803618dda2a97c4",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E8%96%9B%E5%AE%B6%E5%8F%A4%E5%8E%9D01.jpg": "068463fe8f6d50e0",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E5%B7%A6%E7%87%9F%E5%8D%80/%E9%AB%98%E9%9B%84%E5%B7%A8%E8%9B%8B02.jpg": "e63d47644c918e7a",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%97%97%E6%B4%A5%E5%8D%80/%E6%97%97%E5%90%8E%E7%87%88%E5%A1%9401.jpg": "dd4956ef65794793",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%9D%89%E6%9E%97%E5%8D%80/%E8%91%AB%E8%98%86%E9%9B%95%E5%88%BB%E8%97%9D%E8%A1%93%E9%A4%A8-8.jpg": "35b0789753860b6e",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%A2%93%E5%AE%98%E5%8D%80/%E5%90%8C%E5%AE%89%E5%BC%B5%E5%AE%B6%E5%8F%A4%E5%8E%9D06.jpg": "931e3a73590bb863",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E6%A5%A0%E6%A2%93%E5%8D%80/%E7%B4%85%E6%A8%B9%E6%9E%97%E8%8C%84%E8%8B%B3%E6%BA%AA%E4%BF%9D%E8%AD%B7%E5%8D%8001.jpg": "f8d48e4efa1dd044",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B0%E5%AF%AE%E5%8D%80/%E7%94%B0%E5%AF%AE%E6%9C%88%E4%B8%96%E7%95%8C%E6%B9%96%E8%88%87%E6%83%A1%E5%9C%B0.jpg": "b1414db35cfee4b9",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%85%AD%E7%BE%A9%E5%B1%B1-1.jpg": "dc3bef42a4d42e52",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%8C%96%E7%9F%B3%E9%A4%A8-1.jpg": "24e317e0a86a5a7e",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%95%86%E5%9C%88-2.jpg": "438b92e0bed88f0e",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E5%A4%A7%E6%A9%8B-1.jpg": "efbab5c286cfe7ca",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%94%B2%E4%BB%99%E9%99%B3%E5%AE%B6%E9%A6%99%E8%8D%89%E5%9C%92-11%20-%20%E8%A4%87%E8%A3%BD.jpg": "90d6e3fd261aec0d",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%B4%8D%E7%91%AA%E5%A4%8F%E5%B0%8F%E6%9E%97%E6%9D%91%E7%B4%80%E5%BF%B5%E5%85%AC%E5%9C%92-15.jpg": "3915d801643a56d0",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%94%B2%E4%BB%99%E5%8D%80/%E7%B4%8D%E7%91%AA%E5%A4%8F%E9%8C%AB%E5%AE%89%E5%B1%B1-14.jpg": "b464fa5872d454b8",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%BE%8E%E6%BF%83%E5%8D%80/%E7%AB%B9%E5%AD%90%E9%96%80%E7%99%BC%E9%9B%BB%E5%BB%A0.jpg": "26a77b5e389f2258",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E7%BE%8E%E6%BF%83%E5%8D%80/%E7%BE%8E%E6%BF%83%E6%95%AC%E5%AD%97%E4%BA%AD.jpg": "a4aa83c8563654d6",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8B%93%E9%9B%85%E5%8D%80/%E5%85%89%E6%A6%AE%E7%A2%BC%E9%A0%AD%E8%88%B9%E9%9A%BB.jpg": "4f85ab443bf15fbd",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8B%93%E9%9B%85%E5%8D%80/%E9%AB%98%E9%9B%84%E6%B8%85%E7%9C%9F%E5%AF%BA.jpg": "af88f075ec2dda59",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8B%93%E9%9B%85%E5%8D%80/%E9%AB%98%E9%9B%84%E9%97%9C%E5%B8%9D%E5%BB%9F.jpg": "731856411543d403",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%82%E6%9E%97%E5%8D%80/%E5%BE%97%E6%A8%82%E6%97%A5%E5%98%8E%E5%A4%A7%E6%A9%8B.jpg": "17d2d178cf158760",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%82%E6%9E%97%E5%8D%80/%E8%8C%82%E6%9E%97%E5%A4%9A%E7%B4%8D%E9%83%A8%E8%90%BD-2-2.jpg": "63f5852844d8d2a9",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%82%E6%9E%97%E5%8D%80/%E8%8C%82%E6%9E%97%E5%A4%9A%E7%B4%8D%E9%AB%98%E5%90%8A%E6%A9%8B.jpg": "6e2d32f99c9bf58b",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E8%8C%84%E8%90%A3%E5%8D%80/%E7%99%BD%E9%9B%B2%E5%AF%BA02.jpg": "9c0388721ed9a72c",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E9%B3%B3%E5%B1%B1%E5%8D%80/%E9%B3%B3%E5%B1%B1%E4%BB%99%E5%85%AC%E5%BB%9F%2057.jpg": "64d9063be69b66a5",
+    "https://raw.githubusercontent.com/hexschool/KCGTravel/master/image/%E9%BC%93%E5%B1%B1%E5%8D%80/%E9%AB%98%E9%9B%84%E6%B8%AF3.jpg": "5130823e9610f234"
   }
 }

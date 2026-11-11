@@ -8,11 +8,18 @@ export default defineConfig({
     sveltekit({
       adapter: adapter({
         routes: {
-          exclude: ["<build>", "/images/*", "/fonts/*", "/bg.webp", "/favicon.webp",
-            "/github.webp", "/robots.txt", "/sitemap.xml"],
+          exclude: [
+            "<build>",
+            "/images/*",
+            "/fonts/*",
+            "/thumb.webp",
+            "/robots.txt",
+            "/sitemap.xml",
+          ],
         },
       }),
-      inlineStyleThreshold: 40_000,
+      // 單頁網站：CSS 一律內嵌，首屏不必等待外部樣式表。
+      inlineStyleThreshold: Infinity,
       csp: {
         mode: "nonce",
         directives: {

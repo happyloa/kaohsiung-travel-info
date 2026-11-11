@@ -2,8 +2,12 @@
   import type { SpotInfo } from "#lib/types.ts";
   import Icon from "#lib/components/Icon.svelte";
   import { reveal } from "#lib/reveal.ts";
+  import { spotImageSrcset } from "#lib/spot-image.ts";
 
   let { info }: { info: SpotInfo } = $props();
+
+  const sizes =
+    "(min-width: 1536px) 488px, (min-width: 1280px) 402px, (min-width: 1024px) 317px, (min-width: 768px) 356px, (min-width: 640px) 292px, calc(100vw - 40px)";
 </script>
 
 <li {@attach reveal()}>
@@ -11,16 +15,21 @@
     class="flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200/90 bg-white shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl dark:border-blue-900/60 dark:bg-slate-900"
   >
     <div class="relative h-40">
-      <img
-        src={info.Picture1}
-        srcset={info.PictureSrcSet}
-        sizes="(min-width: 1536px) 488px, (min-width: 1280px) 402px, (min-width: 1024px) 317px, (min-width: 768px) 356px, (min-width: 640px) 292px, calc(100vw - 40px)"
-        alt="{info.Name} - {info.Zone}景點照片"
-        loading="lazy"
-        fetchpriority="low"
-        decoding="async"
-        class="size-full object-cover"
-      />
+      <picture class="contents">
+        {#if info.PictureId}
+          <source type="image/avif" srcset={spotImageSrcset(info.PictureId, "avif")} {sizes} />
+        {/if}
+        <img
+          src={info.Picture1}
+          srcset={info.PictureId ? spotImageSrcset(info.PictureId, "webp") : undefined}
+          {sizes}
+          alt="{info.Name} - {info.Zone}景點照片"
+          loading="lazy"
+          fetchpriority="low"
+          decoding="async"
+          class="size-full object-cover"
+        />
+      </picture>
       <div
         class="absolute inset-0 bg-gradient-to-t from-blue-950/85 via-blue-950/15 to-transparent"
       ></div>

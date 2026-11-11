@@ -1,5 +1,6 @@
 import type { SpotInfo } from "#lib/types.ts";
 import media from "#lib/media.json" with { type: "json" };
+import { spotImageSrc } from "#lib/spot-image.ts";
 
 const DATA_URL =
   "https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json";
@@ -20,7 +21,9 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function isSpotInfo(value: unknown): value is SpotInfo {
   if (!isRecord(value) || !Number.isInteger(value._id)) return false;
 
-  return REQUIRED_TEXT_FIELDS.every((field) => typeof value[field] === "string");
+  return REQUIRED_TEXT_FIELDS.every(
+    (field) => typeof value[field] === "string",
+  );
 }
 
 async function fetchSpots(fetchFn: typeof fetch): Promise<SpotInfo[]> {
@@ -54,14 +57,27 @@ async function fetchSpots(fetchFn: typeof fetch): Promise<SpotInfo[]> {
   }
 
   // 只傳送畫面使用的欄位，避免把完整描述與其他上游資料序列化到 HTML。
-  return records.map(({ _id, Name, Zone, Picture1, Opentime, Add, Tel, Ticketinfo }) => ({
-    _id, Name, Zone, Picture1, Opentime, Add, Tel, Ticketinfo,
-  }));
+  return records.map(
+    ({ _id, Name, Zone, Picture1, Opentime, Add, Tel, Ticketinfo }) => ({
+      _id,
+      Name,
+      Zone,
+      Picture1,
+      Opentime,
+      Add,
+      Tel,
+      Ticketinfo,
+    }),
+  );
 }
 
 type DataCache = Pick<Cache, "match" | "put">;
 
-export async function getSpots(fetchFn: typeof fetch, cache?: DataCache, key?: Request) {
+export async function getSpots(
+  fetchFn: typeof fetch,
+  cache?: DataCache,
+  key?: Request,
+) {
   let spots: SpotInfo[] | undefined;
   if (cache && key) {
     try {
@@ -76,21 +92,22 @@ export async function getSpots(fetchFn: typeof fetch, cache?: DataCache, key?: R
     spots = await fetchSpots(fetchFn);
     if (cache && key) {
       try {
-        await cache.put(key, Response.json(spots, {
-          headers: { "Cache-Control": "public, max-age=3600" },
-        }));
+        await cache.put(
+          key,
+          Response.json(spots, {
+            headers: { "Cache-Control": "public, max-age=3600" },
+          }),
+        );
       } catch {
         // A failed cache write must not discard valid data.
       }
     }
   }
-  const images: Record<string, string[]> = media.spots;
-  return spots.map(spot => {
-    const variants = Object.hasOwn(images, spot.Picture1) ? images[spot.Picture1] : undefined;
-    return variants ? {
-      ...spot,
-      Picture1: variants[0],
-      PictureSrcSet: `${variants[0]} 480w, ${variants[1]} 800w`,
-    } : spot;
+  const images: Record<string, string> = media.spots;
+  return spots.map((spot) => {
+    const id = Object.hasOwn(images, spot.Picture1)
+      ? images[spot.Picture1]
+      : undefined;
+    return id ? { ...spot, Picture1: spotImageSrc(id), PictureId: id } : spot;
   });
 }

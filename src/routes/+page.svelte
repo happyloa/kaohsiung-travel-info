@@ -4,16 +4,19 @@
   import AreaSelect from "#lib/components/AreaSelect.svelte";
   import HotButtons from "#lib/components/HotButtons.svelte";
   import AreaCard from "#lib/components/AreaCard.svelte";
-  import { hero, icon } from "#lib/media.json";
+  import { github, hero } from "#lib/media.json";
 
   let { data: pageData }: PageProps = $props();
 
   let selected = $state("");
   let currentPage = $state(1);
+  let listHeading = $state<HTMLHeadingElement>();
 
   const hotAreas = ["苓雅區", "三民區", "新興區", "鼓山區"];
   const pageSize = 12;
-  const heroSrcset = hero.map(image => `${image.src} ${image.width}w`).join(", ");
+  const heroImage = hero[1];
+  const heroSrcset = (format: "avif" | "webp") =>
+    hero.map((image) => `${image[format]} ${image.width}w`).join(", ");
 
   let data = $derived(pageData.spots);
   let errorMessage = $derived(pageData.errorMessage);
@@ -39,22 +42,30 @@
 
   function goToPage(page: number) {
     currentPage = page;
+    // 頁碼在列表下方；換頁後捲回列表標題，避免停在新頁底部。
+    if (listHeading && listHeading.getBoundingClientRect().top < 0) {
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      listHeading.scrollIntoView({ behavior: reduceMotion ? "instant" : "smooth" });
+    }
   }
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href={hero[1].src}
-    imagesrcset={heroSrcset}
+  <link rel="preload" as="image" type="image/avif" href={heroImage.avif}
+    imagesrcset={heroSrcset("avif")}
     imagesizes="100vw" fetchpriority="high" />
 </svelte:head>
 
 <header
   class="relative overflow-hidden p-8 text-center text-white sm:p-12"
 >
-  <img src={hero[1].src} width={hero[1].width} height={hero[1].height}
-    srcset={heroSrcset}
-    sizes="100vw" alt="" fetchpriority="high" decoding="async"
-    class="absolute inset-0 size-full object-cover object-center" />
+  <picture class="contents">
+    <source type="image/avif" srcset={heroSrcset("avif")} sizes="100vw" />
+    <img src={heroImage.webp} width={heroImage.width} height={heroImage.height}
+      srcset={heroSrcset("webp")}
+      sizes="100vw" alt="" fetchpriority="high" decoding="async"
+      class="absolute inset-0 size-full object-cover object-center" />
+  </picture>
   <div
     class="absolute inset-0 bg-gradient-to-b from-blue-950/85 via-sky-900/65 to-slate-900/75"
   ></div>
@@ -81,7 +92,8 @@
     <HotButtons {hotAreas} onSelect={handleSelect} />
   </div>
   <h3
-    class="my-6 text-center text-2xl font-bold text-blue-900 transition-colors dark:text-blue-100"
+    bind:this={listHeading}
+    class="my-6 scroll-mt-6 text-center text-2xl font-bold text-blue-900 transition-colors dark:text-blue-100"
     {@attach reveal("up", 100)}
   >
     {selected || "全部景點"}
@@ -173,7 +185,7 @@
     rel="noopener noreferrer"
     class="inline-flex items-center gap-3 rounded-full bg-blue-100/80 px-6 py-3 text-blue-700 shadow-sm transition-all hover:bg-blue-200 hover:shadow-md dark:bg-blue-950/60 dark:text-blue-300 dark:hover:bg-blue-900/70"
   >
-    <img src={icon} alt="" width="24" height="24" loading="lazy" class="h-6 w-6 dark:invert" />
+    <img src={github} alt="" width="24" height="24" loading="lazy" class="h-6 w-6 dark:invert" />
     <span class="font-medium">View on GitHub</span>
   </a>
   <p class="mt-4 text-sm text-blue-600/70 dark:text-blue-400/60">
