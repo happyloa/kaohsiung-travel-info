@@ -2,58 +2,59 @@
 
 # 高雄市旅遊資訊網
 
-以 SvelteKit 3、Svelte 5、Tailwind CSS 4 製作，部署於 Cloudflare Pages。
+高雄各行政區景點查詢網站，以 SvelteKit 3、Svelte 5、Tailwind CSS 4 製作，部署於 Cloudflare Pages。
 
-- 行政區篩選、熱門區域按鈕、景點分頁。
-- 顯示照片、開放時間、地址、電話及免費參觀標示。
-- 深淺色模式、鍵盤操作與減少動態效果偏好。
-- 伺服器渲染首屏內容，提供 SEO metadata、JSON-LD 與 sitemap。
+- 行政區篩選、熱門區域按鈕、每頁 12 筆分頁。
+- 顯示照片、開放時間、地址、電話與免費參觀標示。
+- 深淺色模式、鍵盤操作、減少動態效果偏好。
+- 伺服器渲染首屏，含 SEO metadata、JSON-LD 與 sitemap。
+- 篩選與頁碼不寫入網址，重新整理後回到全部景點第一頁。
 
-## 開發與驗證
+## 開發
 
-建議使用 `.node-version` 指定的 Node.js 24.22.2，以及 npm 12.2.2。
+需要 Node.js 24 與 npm 12（確切版本見 `.node-version` 與 `package.json` 的 `packageManager`）。
 
 ```bash
 npm ci
-npm run dev
-npm run verify
+npm run dev      # 開發伺服器
+npm run verify   # 型別檢查、正式建置、安全檢查
 ```
 
-`verify` 包含型別檢查、正式建置與安全檢查。型別檢查使用 TypeScript 7 與 `svelte-check --tsgo`；依工具鏈需求保留 TypeScript 6，相應的 Node 型別維持 24 系列。
+- 型別檢查由 `svelte-check --tsgo` 使用 TypeScript 7；`typescript` 套件維持 6.x，因 SvelteKit 3 的 peer dependency 仍要求 TypeScript 6。`@types/node` 對應 Node 24。
+- `npm run audit` 只放行 deepmerge 的 [GHSA-gcqx-w48m-w2h4](https://github.com/advisories/GHSA-gcqx-w48m-w2h4) 及僅因它被標記的上游套件。對應的 [CVE-2026-93753](https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/93xxx/CVE-2026-93753.json) 已於 2026-11-02 遭 CNA 撤銷，但 GitHub 尚未撤回公告，因此 `npm audit` 仍列出 4 個 low。其他漏洞一律讓驗證失敗；公告撤回後即可刪除 `scripts/audit.ts` 的例外。
 
-`npm run audit` 僅排除官方已於 2026-11-02 [撤銷的 CVE-2026-93753](https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/93xxx/CVE-2026-93753.json) 及其純相依鏈。原始 `npm audit` 暫仍列出 4 個 low 誤報；其他漏洞與檢查失敗仍會阻擋驗證。npm 資料庫同步後即可移除此例外。
+## 資料
 
-## 資料與資源
+景點資料來自 [HexSchool 高雄旅遊資料集](https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json)（2015 年版，出發前請向景點確認）。由伺服器取得並驗證格式，逾時 10 秒，成功結果以 Cloudflare Cache API 快取 1 小時；快取不可用時直接回源，失敗時顯示中文錯誤訊息。
 
-資料由伺服器取得並驗證：[HexSchool 高雄旅遊資料集](https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json)。請求逾時為 10 秒，成功結果快取一小時；快取不可用時回源，失敗時顯示中文提示。資料原始更新時間為 2015 年，出發前請向景點確認資訊。
+## 圖片與字型
 
 ```bash
 npm run assets:sync
 ```
 
-此命令更新景點照片與字型分段，需一併提交 `src/lib/media.json`、`static/images/` 和 `src/lib/assets/`。正常建置使用已提交資源，不需下載圖片或字型。
+重新產生景點照片與字型分段，需一併提交 `src/lib/media.json`、`static/images/`、`src/lib/assets/`。正式建置直接使用已提交的檔案，不需下載。
 
-- 景點照片提供 480／800 px WebP；首屏圖片提供 640／800／1280 px 版本。
-- 已收錄照片使用本機檔案，新出現的照片網址保留原圖作為備援。
-- 思源黑體依介面及分頁字元分段，保留 400–700 字重；未能及時載入時使用系統字型。
-- 圖片與字型使用雜湊檔名及長效快取。字型授權見 `static/fonts/OFL.txt`。
+- 景點照片輸出 480／800 px WebP，首圖輸出 640／800／1280 px；資料集出現未收錄的照片時改用原圖網址。
+- 思源黑體依介面文字及每 12 筆景點文字分段，保留 400–700 字重，未及時載入時使用系統字型。授權見 `static/fonts/OFL.txt`。
+- 圖片與字型皆為雜湊檔名，快取一年。
 
 ## 效能
 
-2026-11-08，Lighthouse 13.6.0，本機 Cloudflare 正式產物、預設模擬節流：
+2026-11-11，Lighthouse 13.6.0，本機 `wrangler pages dev` 執行正式產物，預設模擬節流：
 
-| 項目 | 手機 | 桌面 |
-| --- | ---: | ---: |
-| 效能 | 95 | 99 |
-| 無障礙／最佳實務／SEO | 100 | 100 |
-| LCP | 2.9 秒 | 0.8 秒 |
-| TBT／CLS | 0 ms／0 | 0 ms／0 |
+| 項目                  |       手機 |    桌面 |
+| --------------------- | ---------: | ------: |
+| 效能                  |         96 |     100 |
+| 無障礙／最佳實務／SEO |        100 |     100 |
+| LCP                   |     2.7 秒 |  0.8 秒 |
+| TBT／CLS              | ≤ 40 ms／0 | 0 ms／0 |
 
-已驗證 320、390、768、1440 px 版面、卡片對齊、篩選、分頁、56 張照片、主題切換與無 JavaScript 首屏。這些為實驗室結果；手機 LCP 尚高於 2.5 秒目標，正式網站仍需依真實使用者數據持續觀察。
+手機 LCP 仍高於 2.5 秒目標：LCP 元素為首圖，與同時下載的卡片照片、字型共用頻寬。
 
 ## 部署
 
-- 建置指令：`npm run build`；輸出：`.svelte-kit/cloudflare`。
-- 自訂 `_headers` 放在專案根目錄，靜態圖片以 `/images/*` 排除 Worker。
-- CSP 使用每次請求的 nonce；首屏 CSS 小於 40 KB 時內嵌，主題腳本於繪製前執行。
-- 篩選與頁碼保留於頁面狀態，重新整理或分享網址時回到全部景點第一頁。
+- Cloudflare Pages 建置指令 `npm run build`，輸出目錄 `.svelte-kit/cloudflare`。
+- 安全標頭由 `src/hooks.server.ts` 加入；CSP 使用每次請求的 nonce，主題腳本於繪製前執行。
+- 首屏 CSS 小於 40 KB 時內嵌於 HTML（`vite.config.ts` 的 `inlineStyleThreshold`）。
+- 靜態檔不經 Worker（`vite.config.ts` 的 `routes.exclude`），快取規則寫在根目錄 `_headers`。
